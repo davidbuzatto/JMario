@@ -14,15 +14,15 @@ public class Player extends Creature {
     
     private boolean onGround;
     
-    // vari·veis de controle
+    // vari√°veis de controle
     
-    // indica se est· virado para a direita.
+    // indica se est√° virado para a direita.
     private boolean turnedToRight;
     
-    // indica se est· abaixado
+    // indica se est√° abaixado
     private boolean down;
     
-    // indica se est· pulando
+    // indica se est√° pulando
     private boolean pulando;
     
     
@@ -56,7 +56,7 @@ public class Player extends Creature {
     
     
     public Object clone() {
-        // usa reflex„o para criar a subclasse correta.
+        // usa reflex√£o para criar a subclasse correta.
         Constructor constructor = getClass().getConstructors()[ 0 ];
         try {
             return constructor.newInstance( new Object[] {
@@ -85,7 +85,7 @@ public class Player extends Creature {
     
     
     public void collideVertical() {
-        // verifica se colidiu com o ch„o
+        // verifica se colidiu com o ch√£o
         if ( getVelocityY() > 0 ) {
             onGround = true;
             setPulando( false );
@@ -95,7 +95,7 @@ public class Player extends Creature {
     
     
     public void setY(float y) {
-        // verifica se est· caindo
+        // verifica se est√° caindo
         if ( Math.round( y ) > Math.round( getY() ) ) {
             onGround = false;
         }
@@ -104,13 +104,13 @@ public class Player extends Creature {
     
     
     public void wakeUp() {
-        // n„o faz nada
+        // n√£o faz nada
     }
     
     
     /**
-     * Faz o jogador pular se o mesmo estiver no ch„o ou ent„o se forceJump 
-     * È true.
+     * Faz o jogador pular se o mesmo estiver no ch√£o ou ent√£o se forceJump 
+     * √© true.
      */
     public void jump( boolean forceJump ) {
         if ( onGround || forceJump ) {
@@ -124,11 +124,11 @@ public class Player extends Creature {
     }
     
     /**
-     * Atualiza a animaÁ„o desse jogador.
+     * Atualiza a anima√ß√£o desse jogador.
      */
     public void update( long elapsedTime ) {
         
-        // seleciona a animaÁ„o correta
+        // seleciona a anima√ß√£o correta
         Animation newAnim = anim;
         
         if ( getVelocityX() < 0 ) {
@@ -188,7 +188,7 @@ public class Player extends Creature {
             
         }
         
-        // atualiza a animaÁ„o
+        // atualiza a anima√ß√£o
         if ( anim != newAnim ) {
             anim = newAnim;
             anim.start();

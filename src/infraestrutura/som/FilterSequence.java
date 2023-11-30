@@ -1,8 +1,8 @@
 package infraestrutura.som;
 
 /**
- * A classe FilterSequence È um SoundFilter que combina v·rios SoundFilters 
- * em um sÛ.
+ * A classe FilterSequence √© um SoundFilter que combina v√°rios SoundFilters 
+ * em um s√≥.
  * @see FilteredSoundStream
  *
  * @author David Buzatto

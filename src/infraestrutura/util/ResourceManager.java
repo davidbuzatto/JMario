@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import javax.swing.*;
 
 /**
- * A classe ResourceManager carrega e gerencia os pedaÁos (tiles) de Images e 
- * as Sprites "hospedeiras" usadas no jogo. As sprites do Jogo s„o clonadas a 
+ * A classe ResourceManager carrega e gerencia os peda√ßos (tiles) de Images e 
+ * as Sprites "hospedeiras" usadas no jogo. As sprites do Jogo s√£o clonadas a 
  * partir das Sprites hospedeiras.
  *
  * @author David Buzatto
@@ -45,7 +45,7 @@ public class ResourceManager {
     
     /**
      * Cria um novo ResourceManager com o GraphicsConfiguration especificado e 
-     * a letra do ˙ltimo tile.
+     * a letra do √∫ltimo tile.
      */
     public ResourceManager( GraphicsConfiguration gc, char maxTileLetter ) {
         this.gc = gc;
@@ -56,7 +56,7 @@ public class ResourceManager {
     
     
     /**
-     * Obtem uma imagem do diretÛrio /recursos/imagens/
+     * Obtem uma imagem do diret√≥rio /recursos/imagens/
      */
     public Image loadImage( String name ) {
         String filename = "/recursos/imagens/" + name;
@@ -81,18 +81,18 @@ public class ResourceManager {
     
     
     /**
-     * Aplica operaÁ„o de escala em uma imagem.
+     * Aplica opera√ß√£o de escala em uma imagem.
      */
     private Image getScaledImage( Image image, float x, float y ) {
         
-        // configura a transformaÁ„o
+        // configura a transforma√ß√£o
         AffineTransform transform = new AffineTransform();
         transform.scale( x, y );
         transform.translate(
                 ( x - 1 ) * image.getWidth( null ) / 2,
                 ( y - 1 ) * image.getHeight( null ) / 2);
         
-        // cria uma imagem transparente (n„o transl˙cida)
+        // cria uma imagem transparente (n√£o transl√∫cida)
         Image newImage = gc.createCompatibleImage(
                 image.getWidth( null ),
                 image.getHeight( null ),
@@ -108,16 +108,16 @@ public class ResourceManager {
     
     
     /**
-     * Aplica operaÁ„o de escala esmagando uma figura.
+     * Aplica opera√ß√£o de escala esmagando uma figura.
      */
     private Image getSmashedImage( Image image ) {
         
-        // configura a transformaÁ„o
+        // configura a transforma√ß√£o
         AffineTransform transform = new AffineTransform();
         transform.scale( 1, 0.5 );
         transform.translate( 0, image.getHeight( null ) );
         
-        // cria uma imagem transparente (n„o transl˙cida)
+        // cria uma imagem transparente (n√£o transl√∫cida)
         Image newImage = gc.createCompatibleImage(
                 image.getWidth( null ),
                 image.getHeight( null ),
@@ -133,7 +133,7 @@ public class ResourceManager {
     
     
     /**
-     * Carrega o prÛximo mapa.
+     * Carrega o pr√≥ximo mapa.
      */
     public TileMap loadNextMap() {
         TileMap map = null;
@@ -169,7 +169,7 @@ public class ResourceManager {
     
     
     /**
-     * Carrega um mapa do diretÛrio /recursos/mapas/
+     * Carrega um mapa do diret√≥rio /recursos/mapas/
      */
     private TileMap loadMap( String name )
             throws IOException {
@@ -194,7 +194,7 @@ public class ResourceManager {
                     break;
                 }
                 
-                // adiciona toda linha menos os coment·rios
+                // adiciona toda linha menos os coment√°rios
                 if ( !line.startsWith( "#" ) ) {
                     lines.add( line );
                     width = Math.max( width, line.length() );
@@ -289,7 +289,7 @@ public class ResourceManager {
                     (TileMapRenderer.tilesToPixels( 1 ) -
                     sprite.getWidth() ) / 2 );
             
-            // alinha a sprite no ch„o
+            // alinha a sprite no ch√£o
             sprite.setY(
                     TileMapRenderer.tilesToPixels( tileY + 1 ) -
                     sprite.getHeight() );
@@ -301,12 +301,12 @@ public class ResourceManager {
     
     
     /* -----------------------------------------------------------
-     * CÛdigo para carga de sprites e imagens.
+     * C√≥digo para carga de sprites e imagens.
      * ---------------------------------------------------------*/
     
     
     /**
-     * Carrega as imagens dos tiles usando um caracter m·ximo.
+     * Carrega as imagens dos tiles usando um caracter m√°ximo.
      */
     public void loadTileImages( char max ) {
         
@@ -330,7 +330,7 @@ public class ResourceManager {
      */
     public void loadCreatureSprites() {
         
-        // o n˙mero de linhas indica a quantidade de estados da sprite
+        // o n√∫mero de linhas indica a quantidade de estados da sprite
         Image[][] imagensMario = new Image[ 2 ][];
         Image[][] imagensMarioAndando = new Image[ 2 ][];
         Image[][] imagensMarioPulando = new Image[ 2 ][];
@@ -349,7 +349,7 @@ public class ResourceManager {
         Image[][] imagensMummyTurtle = new Image[ 4 ][];
         Image[][] imagensBlueDragon = new Image[ 4 ][];
         
-        // carrega imagens viradas ‡ esquerda para o sonic
+        // carrega imagens viradas √† esquerda para o sonic
         imagensMario[ 0 ] = new Image[] {
             loadImage( "mario1.png" )
         };
@@ -373,72 +373,72 @@ public class ResourceManager {
             loadImage( "marioDown1.png" )
         };
         
-        // carrega imagens viradas ‡ esquerda para o flyGoomba
+        // carrega imagens viradas √† esquerda para o flyGoomba
         imagensFlyGoomba[ 0 ] = new Image[] {
             loadImage( "flyGoomba1.png" ),
             loadImage( "flyGoomba2.png" )
         };
         
-        // carrega imagens viradas ‡ esquerda para o goomba
+        // carrega imagens viradas √† esquerda para o goomba
         imagensGoomba[ 0 ] = new Image[] {
             loadImage( "goomba1.png" ),
             loadImage( "goomba2.png" )
         };
         
-        // carrega imagens viradas ‡ esquerda para o green koopa
+        // carrega imagens viradas √† esquerda para o green koopa
         imagensGreenKoopa[ 0 ] = new Image[] {
             loadImage( "greenKoopa1.png" ),
             loadImage( "greenKoopa2.png" )
         };
         
-        // carrega imagens viradas ‡ esquerda para o red koopa
+        // carrega imagens viradas √† esquerda para o red koopa
         imagensRedKoopa[ 0 ] = new Image[] {
             loadImage( "redKoopa1.png" ),
             loadImage( "redKoopa2.png" )
         };
         
-        // carrega imagens viradas ‡ esquerda para o blue koopa
+        // carrega imagens viradas √† esquerda para o blue koopa
         imagensBlueKoopa[ 0 ] = new Image[] {
             loadImage( "blueKoopa1.png" ),
             loadImage( "blueKoopa2.png" )
         };
         
-        // carrega imagens viradas ‡ esquerda para o yellow koopa
+        // carrega imagens viradas √† esquerda para o yellow koopa
         imagensYellowKoopa[ 0 ] = new Image[] {
             loadImage( "yellowKoopa1.png" ),
             loadImage( "yellowKoopa2.png" )
         };
         
-        // carrega imagens viradas ‡ esquerda para o bomb
+        // carrega imagens viradas √† esquerda para o bomb
         imagensBomb[ 0 ] = new Image[] {
             loadImage( "bomb1.png" ),
             loadImage( "bomb2.png" )
         };
         
-        // carrega imagens viradas ‡ esquerda para o bullet
+        // carrega imagens viradas √† esquerda para o bullet
         imagensBullet[ 0 ] = new Image[] {
             loadImage( "bullet1.png" )
         };
         
-        // carrega imagens viradas ‡ esquerda para o bat
+        // carrega imagens viradas √† esquerda para o bat
         imagensBat[ 0 ] = new Image[] {
             loadImage( "bat1.png" ),
             loadImage( "bat2.png" )
         };
         
-        // carrega imagens viradas ‡ esquerda para o turtle
+        // carrega imagens viradas √† esquerda para o turtle
         imagensTurtle[ 0 ] = new Image[] {
             loadImage( "turtle1.png" ),
             loadImage( "turtle2.png" )
         };
         
-        // carrega imagens viradas ‡ esquerda para o mummy turtle
+        // carrega imagens viradas √† esquerda para o mummy turtle
         imagensMummyTurtle[ 0 ] = new Image[] {
             loadImage( "mummyTurtle1.png" ),
             loadImage( "mummyTurtle2.png" )
         };
         
-        // carrega imagens viradas ‡ esquerda para o blue dragon
+        // carrega imagens viradas √† esquerda para o blue dragon
         imagensBlueDragon[ 0 ] = new Image[] {
             loadImage( "blueDragon1.png" ),
             loadImage( "blueDragon2.png" )
@@ -501,146 +501,146 @@ public class ResourceManager {
         
         // para cada coluna do array, configura as imagens correpondentes aos estados.
         for ( int i = 0; i < imagensMario[ 0 ].length; i++ ) {
-            // imagens viradas ‡ direita
+            // imagens viradas √† direita
             imagensMario[ 1 ][ i ] = getMirrorImage( imagensMario[ 0 ][ i ] );
         }
         
         for ( int i = 0; i < imagensMarioAndando[ 0 ].length; i++ ) {
-            // imagens viradas ‡ direita
+            // imagens viradas √† direita
             imagensMarioAndando[ 1 ][ i ] = getMirrorImage( imagensMarioAndando[ 0 ][ i ] );
         }
         
         for ( int i = 0; i < imagensMarioPulando[ 0 ].length; i++ ) {
-            // imagens viradas ‡ direita
+            // imagens viradas √† direita
             imagensMarioPulando[ 1 ][ i ] = getMirrorImage( imagensMarioPulando[ 0 ][ i ] );
         }
         
         for ( int i = 0; i < imagensMarioAndando[ 0 ].length; i++ ) {
-            // imagens viradas ‡ direita
+            // imagens viradas √† direita
             imagensMarioAndando[ 1 ][ i ] = getMirrorImage( imagensMarioAndando[ 0 ][ i ] );
         }
         
         for ( int i = 0; i < imagensMarioMorrendo[ 0 ].length; i++ ) {
-            // imagens viradas ‡ direita
+            // imagens viradas √† direita
             imagensMarioMorrendo[ 1 ][ i ] = getMirrorImage( imagensMarioMorrendo[ 0 ][ i ] );
         }
         
         for ( int i = 0; i < imagensMarioAbaixado[ 0 ].length; i++ ) {
-            // imagens viradas ‡ direita
+            // imagens viradas √† direita
             imagensMarioAbaixado[ 1 ][ i ] = getMirrorImage( imagensMarioAbaixado[ 0 ][ i ] );
         }
         
         for ( int i = 0; i < imagensFlyGoomba[ 0 ].length; i++ ) {
-            // imagens viradas ‡ direita
+            // imagens viradas √† direita
             imagensFlyGoomba[ 1 ][ i ] = getMirrorImage( imagensFlyGoomba[ 0 ][ i ] );
-            // imagens viradas ‡ esquerda "mortas"
+            // imagens viradas √† esquerda "mortas"
             imagensFlyGoomba[ 2 ][ i ] = getSmashedImage( imagensFlyGoomba[ 0 ][ i ] );
-            // imagens viradas ‡ direita "mortas"
+            // imagens viradas √† direita "mortas"
             imagensFlyGoomba[ 3 ][ i ] = getSmashedImage( imagensFlyGoomba[ 1 ][ i ] );
         }
         
         for ( int i = 0; i < imagensGoomba[ 0 ].length; i++ ) {
-            // imagens viradas ‡ direita
+            // imagens viradas √† direita
             imagensGoomba[ 1 ][ i ] = getMirrorImage( imagensGoomba[ 0 ][ i ] );
-            // imagens viradas ‡ esquerda "mortas"
+            // imagens viradas √† esquerda "mortas"
             imagensGoomba[ 2 ][ i ] = getSmashedImage( imagensGoomba[ 0 ][ i ] );
-            // imagens viradas ‡ direita "mortas"
+            // imagens viradas √† direita "mortas"
             imagensGoomba[ 3 ][ i ] = getSmashedImage( imagensGoomba[ 1 ][ i ] );
         }
         
         for ( int i = 0; i < imagensGreenKoopa[ 0 ].length; i++ ) {
-            // imagens viradas ‡ direita
+            // imagens viradas √† direita
             imagensGreenKoopa[ 1 ][ i ] = getMirrorImage( imagensGreenKoopa[ 0 ][ i ] );
-            // imagens viradas ‡ esquerda "mortas"
+            // imagens viradas √† esquerda "mortas"
             imagensGreenKoopa[ 2 ][ i ] = getSmashedImage( imagensGreenKoopa[ 0 ][ i ] );
-            // imagens viradas ‡ direita "mortas"
+            // imagens viradas √† direita "mortas"
             imagensGreenKoopa[ 3 ][ i ] = getSmashedImage( imagensGreenKoopa[ 1 ][ i ] );
         }
         
         for ( int i = 0; i < imagensRedKoopa[ 0 ].length; i++ ) {
-            // imagens viradas ‡ direita
+            // imagens viradas √† direita
             imagensRedKoopa[ 1 ][ i ] = getMirrorImage( imagensRedKoopa[ 0 ][ i ] );
-            // imagens viradas ‡ esquerda "mortas"
+            // imagens viradas √† esquerda "mortas"
             imagensRedKoopa[ 2 ][ i ] = getSmashedImage( imagensRedKoopa[ 0 ][ i ] );
-            // imagens viradas ‡ direita "mortas"
+            // imagens viradas √† direita "mortas"
             imagensRedKoopa[ 3 ][ i ] = getSmashedImage( imagensRedKoopa[ 1 ][ i ] );
         }
         
         for ( int i = 0; i < imagensBlueKoopa[ 0 ].length; i++ ) {
-            // imagens viradas ‡ direita
+            // imagens viradas √† direita
             imagensBlueKoopa[ 1 ][ i ] = getMirrorImage( imagensBlueKoopa[ 0 ][ i ] );
-            // imagens viradas ‡ esquerda "mortas"
+            // imagens viradas √† esquerda "mortas"
             imagensBlueKoopa[ 2 ][ i ] = getSmashedImage( imagensBlueKoopa[ 0 ][ i ] );
-            // imagens viradas ‡ direita "mortas"
+            // imagens viradas √† direita "mortas"
             imagensBlueKoopa[ 3 ][ i ] = getSmashedImage( imagensBlueKoopa[ 1 ][ i ] );
         }
         
         for ( int i = 0; i < imagensYellowKoopa[ 0 ].length; i++ ) {
-            // imagens viradas ‡ direita
+            // imagens viradas √† direita
             imagensYellowKoopa[ 1 ][ i ] = getMirrorImage( imagensYellowKoopa[ 0 ][ i ] );
-            // imagens viradas ‡ esquerda "mortas"
+            // imagens viradas √† esquerda "mortas"
             imagensYellowKoopa[ 2 ][ i ] = getSmashedImage( imagensYellowKoopa[ 0 ][ i ] );
-            // imagens viradas ‡ direita "mortas"
+            // imagens viradas √† direita "mortas"
             imagensYellowKoopa[ 3 ][ i ] = getSmashedImage( imagensYellowKoopa[ 1 ][ i ] );
         }
         
         for ( int i = 0; i < imagensBomb[ 0 ].length; i++ ) {
-            // imagensBomb viradas ‡ direita
+            // imagensBomb viradas √† direita
             imagensBomb[ 1 ][ i ] = getMirrorImage( imagensBomb[ 0 ][ i ] );
-            // imagensBomb viradas ‡ esquerda "mortas"
+            // imagensBomb viradas √† esquerda "mortas"
             imagensBomb[ 2 ][ i ] = getSmashedImage( imagensBomb[ 0 ][ i ] );
-            // imagensBomb viradas ‡ direita "mortas"
+            // imagensBomb viradas √† direita "mortas"
             imagensBomb[ 3 ][ i ] = getSmashedImage( imagensBomb[ 1 ][ i ] );
         }
         
         for ( int i = 0; i < imagensBullet[ 0 ].length; i++ ) {
-            // imagensBullet viradas ‡ direita
+            // imagensBullet viradas √† direita
             imagensBullet[ 1 ][ i ] = getMirrorImage( imagensBullet[ 0 ][ i ] );
-            // imagensBullet viradas ‡ esquerda "mortas"
+            // imagensBullet viradas √† esquerda "mortas"
             imagensBullet[ 2 ][ i ] = getSmashedImage( imagensBullet[ 0 ][ i ] );
-            // imagensBullet viradas ‡ direita "mortas"
+            // imagensBullet viradas √† direita "mortas"
             imagensBullet[ 3 ][ i ] = getSmashedImage( imagensBullet[ 1 ][ i ] );
         }
         
         for ( int i = 0; i < imagensBat[ 0 ].length; i++ ) {
-            // imagensBat viradas ‡ direita
+            // imagensBat viradas √† direita
             imagensBat[ 1 ][ i ] = getMirrorImage( imagensBat[ 0 ][ i ] );
-            // imagensBat viradas ‡ esquerda "mortas"
+            // imagensBat viradas √† esquerda "mortas"
             imagensBat[ 2 ][ i ] = getSmashedImage( imagensBat[ 0 ][ i ] );
-            // imagensBat viradas ‡ direita "mortas"
+            // imagensBat viradas √† direita "mortas"
             imagensBat[ 3 ][ i ] = getSmashedImage( imagensBat[ 1 ][ i ] );
         }
         
         for ( int i = 0; i < imagensTurtle[ 0 ].length; i++ ) {
-            // imagensTurtle viradas ‡ direita
+            // imagensTurtle viradas √† direita
             imagensTurtle[ 1 ][ i ] = getMirrorImage( imagensTurtle[ 0 ][ i ] );
-            // imagensTurtle viradas ‡ esquerda "mortas"
+            // imagensTurtle viradas √† esquerda "mortas"
             imagensTurtle[ 2 ][ i ] = getSmashedImage( imagensTurtle[ 0 ][ i ] );
-            // imagensTurtle viradas ‡ direita "mortas"
+            // imagensTurtle viradas √† direita "mortas"
             imagensTurtle[ 3 ][ i ] = getSmashedImage( imagensTurtle[ 1 ][ i ] );
         }
         
         for ( int i = 0; i < imagensMummyTurtle[ 0 ].length; i++ ) {
-            // imagensMummyTurtle viradas ‡ direita
+            // imagensMummyTurtle viradas √† direita
             imagensMummyTurtle[ 1 ][ i ] = getMirrorImage( imagensMummyTurtle[ 0 ][ i ] );
-            // imagensMummyTurtle viradas ‡ esquerda "mortas"
+            // imagensMummyTurtle viradas √† esquerda "mortas"
             imagensMummyTurtle[ 2 ][ i ] = getSmashedImage( imagensMummyTurtle[ 0 ][ i ] );
-            // imagensMummyTurtle viradas ‡ direita "mortas"
+            // imagensMummyTurtle viradas √† direita "mortas"
             imagensMummyTurtle[ 3 ][ i ] = getSmashedImage( imagensMummyTurtle[ 1 ][ i ] );
         }
         
         for ( int i = 0; i < imagensBlueDragon[ 0 ].length; i++ ) {
-            // imagensBlueDragon viradas ‡ direita
+            // imagensBlueDragon viradas √† direita
             imagensBlueDragon[ 1 ][ i ] = getMirrorImage( imagensBlueDragon[ 0 ][ i ] );
-            // imagensBlueDragon viradas ‡ esquerda "mortas"
+            // imagensBlueDragon viradas √† esquerda "mortas"
             imagensBlueDragon[ 2 ][ i ] = getSmashedImage( imagensBlueDragon[ 0 ][ i ] );
-            // imagensBlueDragon viradas ‡ direita "mortas"
+            // imagensBlueDragon viradas √† direita "mortas"
             imagensBlueDragon[ 3 ][ i ] = getSmashedImage( imagensBlueDragon[ 1 ][ i ] );
         }
         
         
         
-        // cria as animaÁıes das criaturas, baseado na quantidade de estados
+        // cria as anima√ß√µes das criaturas, baseado na quantidade de estados
         Animation[] playerAnim = new Animation[ imagensMario.length ];
         Animation[] playerAnimAndando = new Animation[ imagensMarioAndando.length ];
         Animation[] playerAnimPulando = new Animation[ imagensMarioPulando.length ];
@@ -660,7 +660,7 @@ public class ResourceManager {
         Animation[] blueDragonAnim = new Animation[ imagensBlueDragon.length ];
         
         
-        // itera pela quantidade de estados, criando uma animaÁ„o para cada um deles
+        // itera pela quantidade de estados, criando uma anima√ß√£o para cada um deles
         for ( int i = 0; i < playerAnim.length; i++ ) {
             playerAnim[ i ] = createPlayerAnim( imagensMario[ i ][ 0 ] );
         }
@@ -744,7 +744,7 @@ public class ResourceManager {
                     imagensBlueDragon[ i ][ 0 ], imagensBlueDragon[ i ][ 1 ] );
         }
         
-        // cria as sprites das criaturas, usando as animaÁıes criadas
+        // cria as sprites das criaturas, usando as anima√ß√µes criadas
         playerSprite = new Player( playerAnim[ 0 ], playerAnim[ 1 ], 
                 playerAnimMorrendo[ 0 ], playerAnimMorrendo[ 1 ],
                 playerAnimAndando[ 0 ], playerAnimAndando[ 1 ],
@@ -791,7 +791,7 @@ public class ResourceManager {
     
     
     /**
-     * Cria a animaÁ„o do jogador.
+     * Cria a anima√ß√£o do jogador.
      */
     private Animation createPlayerAnim( Image... player ) {
         Animation anim = new Animation();
@@ -800,7 +800,7 @@ public class ResourceManager {
     }
     
     /**
-     * Cria a animaÁ„o do jogador andando.
+     * Cria a anima√ß√£o do jogador andando.
      */
     private Animation createPlayerAnimAndando( Image... player ) {
         Animation anim = new Animation();
@@ -810,7 +810,7 @@ public class ResourceManager {
     }
     
     /**
-     * Cria a animaÁ„o do jogador pulando.
+     * Cria a anima√ß√£o do jogador pulando.
      */
     private Animation createPlayerAnimPulando( Image... player ) {
         Animation anim = new Animation();
@@ -820,7 +820,7 @@ public class ResourceManager {
     }
     
     /**
-     * Cria a animaÁ„o do jogador morrendo.
+     * Cria a anima√ß√£o do jogador morrendo.
      */
     private Animation createPlayerAnimMorrendo( Image... player ) {
         Animation anim = new Animation();
@@ -831,7 +831,7 @@ public class ResourceManager {
     
     
     /**
-     * Cria a animaÁ„o do jogador abaixado.
+     * Cria a anima√ß√£o do jogador abaixado.
      */
     private Animation createPlayerAnimAbaixado( Image... player ) {
         Animation anim = new Animation();
@@ -841,7 +841,7 @@ public class ResourceManager {
     
     
     /**
-     * Cria a animaÁ„o do FlyGoomba.
+     * Cria a anima√ß√£o do FlyGoomba.
      */
     private Animation createFlyGoombaAnim( Image... img ) {
         Animation anim = new Animation();
@@ -852,7 +852,7 @@ public class ResourceManager {
     
     
     /**
-     * Cria a animaÁ„o do Goomba.
+     * Cria a anima√ß√£o do Goomba.
      */
     private Animation createGoombaAnim( Image... img ) {
         Animation anim = new Animation();
@@ -862,7 +862,7 @@ public class ResourceManager {
     }
     
     /**
-     * Cria a animaÁ„o do Green Koopa.
+     * Cria a anima√ß√£o do Green Koopa.
      */
     private Animation createGreenKoopaAnim( Image... img ) {
         Animation anim = new Animation();
@@ -872,7 +872,7 @@ public class ResourceManager {
     }
     
     /**
-     * Cria a animaÁ„o do Red Koopa.
+     * Cria a anima√ß√£o do Red Koopa.
      */
     private Animation createRedKoopaAnim( Image... img ) {
         Animation anim = new Animation();
@@ -882,7 +882,7 @@ public class ResourceManager {
     }
     
     /**
-     * Cria a animaÁ„o do Blue Koopa.
+     * Cria a anima√ß√£o do Blue Koopa.
      */
     private Animation createBlueKoopaAnim( Image... img ) {
         Animation anim = new Animation();
@@ -892,7 +892,7 @@ public class ResourceManager {
     }
     
     /**
-     * Cria a animaÁ„o do Yellow Koopa.
+     * Cria a anima√ß√£o do Yellow Koopa.
      */
     private Animation createYellowKoopaAnim( Image... img ) {
         Animation anim = new Animation();
@@ -902,7 +902,7 @@ public class ResourceManager {
     }
     
     /**
-     * Cria a animaÁ„o do Bomb.
+     * Cria a anima√ß√£o do Bomb.
      */
     private Animation createBombAnim( Image... img ) {
         Animation anim = new Animation();
@@ -912,7 +912,7 @@ public class ResourceManager {
     }
     
     /**
-     * Cria a animaÁ„o do Bullet.
+     * Cria a anima√ß√£o do Bullet.
      */
     private Animation createBulletAnim( Image... img ) {
         Animation anim = new Animation();
@@ -921,7 +921,7 @@ public class ResourceManager {
     }
     
     /**
-     * Cria a animaÁ„o do Bat.
+     * Cria a anima√ß√£o do Bat.
      */
     private Animation createBatAnim( Image... img ) {
         Animation anim = new Animation();
@@ -931,7 +931,7 @@ public class ResourceManager {
     }
     
     /**
-     * Cria a animaÁ„o do Turtle.
+     * Cria a anima√ß√£o do Turtle.
      */
     private Animation createTurtleAnim( Image... img ) {
         Animation anim = new Animation();
@@ -941,7 +941,7 @@ public class ResourceManager {
     }
     
     /**
-     * Cria a animaÁ„o do Mummy Turtle.
+     * Cria a anima√ß√£o do Mummy Turtle.
      */
     private Animation createMummyTurtleAnim( Image... img ) {
         Animation anim = new Animation();
@@ -951,7 +951,7 @@ public class ResourceManager {
     }
     
     /**
-     * Cria a animaÁ„o do Blue Dragon.
+     * Cria a anima√ß√£o do Blue Dragon.
      */
     private Animation createBlueDragonAnim( Image... img ) {
         Animation anim = new Animation();
@@ -965,7 +965,7 @@ public class ResourceManager {
      */
     private void loadPowerUpSprites() {
         
-        // cria a sprite de finalizaÁ„o "goal""
+        // cria a sprite de finaliza√ß√£o "goal""
         Animation anim = new Animation();
         anim.addFrame( loadImage( "star1.png" ), 20 );
         anim.addFrame( loadImage( "star2.png" ), 40 );

@@ -3,7 +3,7 @@ package jogo.sprites;
 import infraestrutura.grafico.Animation;
 
 /**
- * Uma Bat é uma Creature que voa vagarozamente no ar.
+ * Uma Bat Ã© uma Creature que voa vagarozamente no ar.
  */
 public class Bat extends Creature {
     

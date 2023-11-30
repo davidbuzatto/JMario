@@ -6,7 +6,7 @@ import infraestrutura.grafico.*;
 
 /**
  * Classe abstrata utilizada como base do jogo. As subclasses devem implementar
- * o mÈtodo draw().
+ * o m√©todo draw().
  *
  * @author David Buzatto
  */
@@ -14,7 +14,7 @@ public abstract class GameCore {
     
     protected static final int FONT_SIZE = 24;
     
-    // modos de visualizaÁ„o
+    // modos de visualiza√ß√£o
     private static final DisplayMode POSSIBLE_MODES[] = {
         new DisplayMode( 800, 600, 16, 0 ),
         new DisplayMode( 800, 600, 32, 0 ),
@@ -31,7 +31,7 @@ public abstract class GameCore {
     protected ScreenManager screen;
     
     /**
-     * Sinaliza ao loop do jogo que È hora de terminar.
+     * Sinaliza ao loop do jogo que √© hora de terminar.
      */
     public void stop() {
         isRunning = false;
@@ -53,21 +53,21 @@ public abstract class GameCore {
     
     
     /**
-     * Finaliza a m·quina virtual usando uma thread daemon.
-     * A thread daemon aguarda 2 segundos ent„o chama System.exit(0).
-     * Como a m·quina virtual deve finalizar apenas quando o daemon estiver 
-     * rodando, isso d· certeza que System.exit(0) È chamado somente quanto 
-     * necess·rio. Isso se faz necess·rio para quando o sistema de som do Java
+     * Finaliza a m√°quina virtual usando uma thread daemon.
+     * A thread daemon aguarda 2 segundos ent√£o chama System.exit(0).
+     * Como a m√°quina virtual deve finalizar apenas quando o daemon estiver 
+     * rodando, isso d√° certeza que System.exit(0) √© chamado somente quanto 
+     * necess√°rio. Isso se faz necess√°rio para quando o sistema de som do Java
      * estiver sendo executado.
      */
     public void lazilyExit() {
         Thread thread = new Thread() {
             public void run() {
-                // primeiro aguarda que a m·quina virtual finaliza por si prÛpria
+                // primeiro aguarda que a m√°quina virtual finaliza por si pr√≥pria
                 try {
                     Thread.sleep( 2000 );
                 } catch ( InterruptedException ex ) { }
-                // o sistema ainda est· rodando, ent„o forÁa a finalizaÁ„o
+                // o sistema ainda est√° rodando, ent√£o for√ßa a finaliza√ß√£o
                 System.exit( 0 );
             }
         };
@@ -103,7 +103,7 @@ public abstract class GameCore {
     
     
     /**
-     * Executa o game loop atÈ que stop() seja chamado.
+     * Executa o game loop at√© que stop() seja chamado.
      */
     public void gameLoop() {
         long startTime = System.currentTimeMillis();
@@ -123,7 +123,7 @@ public abstract class GameCore {
             g.dispose();
             screen.update();
             
-            // n„o forme, executando da forma mais r·pida possÌvel
+            // n√£o forme, executando da forma mais r√°pida poss√≠vel
             /*try {
                 Thread.sleep(20);
             }
@@ -133,16 +133,16 @@ public abstract class GameCore {
     
     
     /**
-     * Atualiza o estado do jogo/animaÁ„o baseado da quantidade de tempo 
+     * Atualiza o estado do jogo/anima√ß√£o baseado da quantidade de tempo 
      * que passou.
      */
     public void update(long elapsedTime) {
-        // n„o faz nada
+        // n√£o faz nada
     }
     
     
     /**
-     * Desenha na tela. As subclasses devem sobrescrever esse mÈtodo.
+     * Desenha na tela. As subclasses devem sobrescrever esse m√©todo.
      */
     public abstract void draw(Graphics2D g);
     

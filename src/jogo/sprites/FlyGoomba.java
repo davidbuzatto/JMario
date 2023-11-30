@@ -3,7 +3,7 @@ package jogo.sprites;
 import infraestrutura.grafico.Animation;
 
 /**
- * Uma FlyGoomba é uma Creature que voa vagarozamente no ar.
+ * Uma FlyGoomba Ã© uma Creature que voa vagarozamente no ar.
  */
 public class FlyGoomba extends Creature {
     

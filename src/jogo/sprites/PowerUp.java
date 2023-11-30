@@ -5,7 +5,7 @@ import infraestrutura.grafico.Sprite;
 import java.lang.reflect.Constructor;
 
 /**
- * PowerUp È uma Sprite que o jogador pode pegar.
+ * PowerUp √© uma Sprite que o jogador pode pegar.
  */
 public abstract class PowerUp extends Sprite {
     
@@ -15,13 +15,13 @@ public abstract class PowerUp extends Sprite {
     
     
     public Object clone() {
-        // usa reflex„o para criar a subclasse correta
+        // usa reflex√£o para criar a subclasse correta
         Constructor constructor = getClass().getConstructors()[ 0 ];
         try {
             return constructor.newInstance(
                     new Object[] { ( Animation)anim.clone() } );
         } catch ( Exception ex ) {
-            // provavelmente nunca ir· acontecer
+            // provavelmente nunca ir√° acontecer
             ex.printStackTrace();
             return null;
         }
@@ -29,7 +29,7 @@ public abstract class PowerUp extends Sprite {
     
     
     /**
-     * O PowerUp Coin. D· pontos ao jogador.
+     * O PowerUp Coin. D√° pontos ao jogador.
      */
     public static class Coin extends PowerUp {
         public Coin( Animation anim ) {
@@ -48,7 +48,7 @@ public abstract class PowerUp extends Sprite {
     }
     
     /**
-     * O PowerUp OneUpe d· uma vida ao jogador.
+     * O PowerUp OneUpe d√° uma vida ao jogador.
      */
     public static class OneUp extends PowerUp {
         public OneUp( Animation anim ) {
@@ -57,7 +57,7 @@ public abstract class PowerUp extends Sprite {
     }
     
     /**
-     * O PowerUp FireFlower d· ao jogador poder de jogar fogo.
+     * O PowerUp FireFlower d√° ao jogador poder de jogar fogo.
      */
     public static class FireFlower extends PowerUp {
         public FireFlower( Animation anim ) {
@@ -67,7 +67,7 @@ public abstract class PowerUp extends Sprite {
     
     
     /**
-     * O PowerUp Goal. AvanÁa para o prÛximo mapa.
+     * O PowerUp Goal. Avan√ßa para o pr√≥ximo mapa.
      */
     public static class Goal extends PowerUp {
         public Goal( Animation anim ) {

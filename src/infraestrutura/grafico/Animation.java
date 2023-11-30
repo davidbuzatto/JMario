@@ -4,7 +4,7 @@ import java.awt.*;
 import java.util.*;
 
 /**
- * A classe Animation gerencia uma sÈrie de imagens (quadros) e a quantidade
+ * A classe Animation gerencia uma s√©rie de imagens (quadros) e a quantidade
  * de tempo para exibir cada imagem.
  *
  * @author David Buzatto
@@ -26,8 +26,8 @@ public class Animation {
     
     
     /**
-     * Cria uma animaÁ„o com os frames e a duraÁ„o total da exibiÁ„o 
-     * da animaÁ„o.
+     * Cria uma anima√ß√£o com os frames e a dura√ß√£o total da exibi√ß√£o 
+     * da anima√ß√£o.
      */
     private Animation( ArrayList< AnimFrame > frames, long totalDuration ) {
         this.frames = frames;
@@ -37,8 +37,8 @@ public class Animation {
     
     
     /**
-     * Cria uma duplicata da animaÁ„o. A lista de frames È compartilhada 
-     * entre duas animaÁıes, mas cada animaÁ„o pode ser animada 
+     * Cria uma duplicata da anima√ß√£o. A lista de frames √© compartilhada 
+     * entre duas anima√ß√µes, mas cada anima√ß√£o pode ser animada 
      * independentemente.
      */
     public Object clone() {
@@ -47,7 +47,7 @@ public class Animation {
     
     
     /**
-     * Adiciona uma imagem ‡ animaÁ„o com uma duraÁ„o especificada.
+     * Adiciona uma imagem √† anima√ß√£o com uma dura√ß√£o especificada.
      * (tempo para exibir a imagem).
      */
     public synchronized void addFrame( Image image, long duration ) {
@@ -59,7 +59,7 @@ public class Animation {
     
     
     /**
-     * Inicia a animaÁ„o desde o inÌcio.
+     * Inicia a anima√ß√£o desde o in√≠cio.
      */
     public synchronized void start() {
         animTime = 0;
@@ -68,7 +68,7 @@ public class Animation {
     
     
     /**
-     * Atualiza o quadro atual desta animaÁ„o, se necess·rio.
+     * Atualiza o quadro atual desta anima√ß√£o, se necess√°rio.
      */
     public synchronized void update( long elapsedTime ) {
         
@@ -95,8 +95,8 @@ public class Animation {
     
     
     /**
-     * ObtÈm a imagem atual da animaÁ„o. Retorna null se a animaÁ„o
-     * n„o tiver nenhuma imagem.
+     * Obt√©m a imagem atual da anima√ß√£o. Retorna null se a anima√ß√£o
+     * n√£o tiver nenhuma imagem.
      */
     public synchronized Image getImage() {
         
@@ -113,7 +113,7 @@ public class Animation {
     }
     
     /**
-     * ObtÈm um frame da animaÁ„o.
+     * Obt√©m um frame da anima√ß√£o.
      */
     private AnimFrame getFrame( int i ) {
         
@@ -123,7 +123,7 @@ public class Animation {
     
     
     /**
-     * Class interna privada que modela um frame (quadro) da animaÁ„o.
+     * Class interna privada que modela um frame (quadro) da anima√ß√£o.
      */
     private class AnimFrame {
         
@@ -131,7 +131,7 @@ public class Animation {
         long endTime;
         
         /**
-         * Cria uma novo AnimFrame com uma imagem e o tempo de duraÁ„o.
+         * Cria uma novo AnimFrame com uma imagem e o tempo de dura√ß√£o.
          */
         public AnimFrame( Image image, long endTime ) {
             

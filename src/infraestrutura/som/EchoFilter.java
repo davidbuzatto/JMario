@@ -1,7 +1,7 @@
 package infraestrutura.som;
 
 /**
- * A classe EchoFilter È um SoundFilter que emula um Èco.
+ * A classe EchoFilter √© um SoundFilter que emula um √©co.
  *
  * @see FilteredSoundStream
  *
@@ -15,13 +15,13 @@ public class EchoFilter extends SoundFilter {
     
     
     /**
-     * Cria um EchoFilter com o n˙mero especificado de atrasos e com a 
+     * Cria um EchoFilter com o n√∫mero especificado de atrasos e com a 
      * taxa de decaimento.
-     * <p>O n˙mero de atrasos especifica por quanto tempo o Èco ser· ouvido 
-     * inicialmente. Para um Èco de 1 segundos com mono, som de 44100Hz, 
+     * <p>O n√∫mero de atrasos especifica por quanto tempo o √©co ser√° ouvido 
+     * inicialmente. Para um √©co de 1 segundos com mono, som de 44100Hz, 
      * use 44100 de atraso.
-     * <p>O valor de decaimento È o quanto o Èco decai a partir da fonte. 
-     * Um valor de deciamento de .5 siginifica que o Èco È ouvido com a metada 
+     * <p>O valor de decaimento √© o quanto o √©co decai a partir da fonte. 
+     * Um valor de deciamento de .5 siginifica que o √©co √© ouvido com a metada 
      * da intensidade do som da fonte.
      */
     public EchoFilter( int numDelaySamples, float decay ) {
@@ -31,9 +31,9 @@ public class EchoFilter extends SoundFilter {
     
     
     /**
-     * ObtÈm o tamanho restante, em bytes, das amostrar que esse filtro pode 
+     * Obt√©m o tamanho restante, em bytes, das amostrar que esse filtro pode 
      * ecoar antes que o som termine de ser exeuctado.
-     * Certifica que o som ser· decaÌdo mens que 1% do volume m·ximo (amplitude).
+     * Certifica que o som ser√° deca√≠do mens que 1% do volume m√°ximo (amplitude).
      */
     public int getRemainingSize() {
         
@@ -61,9 +61,9 @@ public class EchoFilter extends SoundFilter {
     
     /**
      * Filtra as amostras de som apra adicionar o eco. As amostras
-     * tocadas s„o adicionadas ao som do buffer de atraso multiplicadas pela 
-     * taxa de decaimento. O resultado È armazenado no buffer de atraso, ent„o 
-     * m˙ltiplos ecos s„o ouvidos.
+     * tocadas s√£o adicionadas ao som do buffer de atraso multiplicadas pela 
+     * taxa de decaimento. O resultado √© armazenado no buffer de atraso, ent√£o 
+     * m√∫ltiplos ecos s√£o ouvidos.
      */
     public void filter(byte[] samples, int offset, int length) {
         

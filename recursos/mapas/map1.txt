@@ -1,8 +1,8 @@
 # Arquivo de mapa
-# Linhas que iniciam com '#' representam coment·rios
+# Linhas que iniciam com '#' representam coment√°rios
 #
 #   Tiles:
-#   (EspaÁo) Tile Vazio
+#   (Espa√ßo) Tile Vazio
 #   A..Z     Tiles A through Z
 #
 #   Items:

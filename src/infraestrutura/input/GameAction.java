@@ -1,7 +1,7 @@
 package infraestrutura.input;
 
 /**
- * A classe GameAction È uma abstraÁ„o para uma aÁ„o iniciada pelo usu·rio,
+ * A classe GameAction √© uma abstra√ß√£o para uma a√ß√£o iniciada pelo usu√°rio,
  * como pular ou mover. As GameActions podem ser mapeadas para teclas ou
  * mouse usando o InputManager.
  *
@@ -10,14 +10,14 @@ package infraestrutura.input;
 public class GameAction {
     
     /**
-     * Comportamento normal. O mÈtodo isPressed() retorna true quando a tecla
-     * È mantida pressionada.
+     * Comportamento normal. O m√©todo isPressed() retorna true quando a tecla
+     * √© mantida pressionada.
      */
     public static final int NORMAL = 0;
     
     /**
-     * Comportamento de pressionamento inicial. O mÈtodo isPressed() retorna
-     * true somente depois que a tecla È pressionada pela primeira vez, e n„o
+     * Comportamento de pressionamento inicial. O m√©todo isPressed() retorna
+     * true somente depois que a tecla √© pressionada pela primeira vez, e n√£o
      * novamente ate que a tecla seja solta e pressionada novamente.
      */
     public static final int DETECT_INITAL_PRESS_ONLY = 1;
@@ -51,7 +51,7 @@ public class GameAction {
     
     
     /**
-     * ObtÈm o nome dessa GameAction.
+     * Obt√©m o nome dessa GameAction.
      */
     public String getName() {
         return name;
@@ -59,7 +59,7 @@ public class GameAction {
     
     
     /**
-     * Reseta esta GameAction, fazendo parecer que esta n„o foi pressionada.
+     * Reseta esta GameAction, fazendo parecer que esta n√£o foi pressionada.
      */
     public void reset() {
         state = STATE_RELEASED;
@@ -68,7 +68,7 @@ public class GameAction {
     
     
     /**
-     * Pressionamento r·pido para essa GameAction. O mesmo que chamar press()
+     * Pressionamento r√°pido para essa GameAction. O mesmo que chamar press()
      * seguido de release().
      */
     public synchronized void tap() {
@@ -87,7 +87,7 @@ public class GameAction {
     
     /**
      * Sinaliza que a tecla foi pressionada na quantidade de vezes especificada,
-     * ou que o mouse se moveu numa dist‚ncia especificada.
+     * ou que o mouse se moveu numa dist√¢ncia especificada.
      */
     public synchronized void press( int amount ) {
         if ( state != STATE_WAITING_FOR_RELEASE ) {
@@ -106,7 +106,7 @@ public class GameAction {
     
     
     /**
-     * Retorna se a tecla foi pressionada ou n„o desde a ˙ltima checagem.
+     * Retorna se a tecla foi pressionada ou n√£o desde a √∫ltima checagem.
      */
     public synchronized boolean isPressed() {
         return ( getAmount() != 0 );
@@ -114,9 +114,9 @@ public class GameAction {
     
     
     /**
-     * Para teclas, È a quantidade de vezes que a tecla foi pressionada desde
-     * a ˙ltima vez que foi checada.
-     * Para eventos do mouse, È a dist‚ncia que cursor foi movido.
+     * Para teclas, √© a quantidade de vezes que a tecla foi pressionada desde
+     * a √∫ltima vez que foi checada.
+     * Para eventos do mouse, √© a dist√¢ncia que cursor foi movido.
      */
     public synchronized int getAmount() {
         int retVal = amount;

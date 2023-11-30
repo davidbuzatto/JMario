@@ -3,7 +3,7 @@ package jogo.sprites;
 import infraestrutura.grafico.Animation;
 
 /**
- * Um YellowKoopa È uma Creature que se move devagar no ch„o.
+ * Um YellowKoopa √© uma Creature que se move devagar no ch√£o.
  */
 public class YellowKoopa extends Creature {
     

@@ -3,7 +3,7 @@ package infraestrutura.grafico;
 import java.awt.*;
 
 /**
- * A classe Sprite define uma entidade do jogo, algo que recebe animações.
+ * A classe Sprite define uma entidade do jogo, algo que recebe animaÃ§Ãµes.
  *
  * @author David Buzatto
  */
@@ -21,7 +21,7 @@ public class Sprite {
     
     
     /*
-     * Cria um novo objeto Sprite com a animação especificada.
+     * Cria um novo objeto Sprite com a animaÃ§Ã£o especificada.
      */
     public Sprite( Animation anim ) {
         this.anim = anim;
@@ -29,7 +29,7 @@ public class Sprite {
     
     
     /**
-     * Atualiza a Animação da Sprite e sua posição baseada na velocidade.
+     * Atualiza a AnimaÃ§Ã£o da Sprite e sua posiÃ§Ã£o baseada na velocidade.
      */
     public void update( long elapsedTime ) {
         x += velocityX * elapsedTime;
@@ -39,7 +39,7 @@ public class Sprite {
     
     
     /**
-     * Obtém a posição x atual da sprite.
+     * ObtÃ©m a posiÃ§Ã£o x atual da sprite.
      */
     public float getX() {
         return x;
@@ -47,7 +47,7 @@ public class Sprite {
     
     
     /**
-     * Configura a posição x atual da sprite.
+     * Configura a posiÃ§Ã£o x atual da sprite.
      */
     public void setX(float x) {
         this.x = x;
@@ -55,7 +55,7 @@ public class Sprite {
     
     
     /**
-     * Obtém a posição y atual da sprite.
+     * ObtÃ©m a posiÃ§Ã£o y atual da sprite.
      */
     public float getY() {
         return y;
@@ -63,7 +63,7 @@ public class Sprite {
     
     
     /**
-     * Configura a posição x atual da sprite.
+     * Configura a posiÃ§Ã£o x atual da sprite.
      */
     public void setY(float y) {
         this.y = y;
@@ -71,7 +71,7 @@ public class Sprite {
     
     
     /**
-     * Obtém a velocidade horizontal da sprite em pixels por milisegundo.
+     * ObtÃ©m a velocidade horizontal da sprite em pixels por milisegundo.
      */
     public float getVelocityX() {
         return velocityX;
@@ -87,7 +87,7 @@ public class Sprite {
     
     
     /**
-     * Obtém a velocidade vertical da sprite em pixels por milisegundo.
+     * ObtÃ©m a velocidade vertical da sprite em pixels por milisegundo.
      */
     public float getVelocityY() {
         return velocityY;
@@ -103,7 +103,7 @@ public class Sprite {
     
     
     /**
-     * Obtém a largura da Sprite, baseado no tamanho da imagem atual.
+     * ObtÃ©m a largura da Sprite, baseado no tamanho da imagem atual.
      */
     public int getWidth() {
         return anim.getImage().getWidth( null );
@@ -111,7 +111,7 @@ public class Sprite {
     
     
     /**
-     * Obtém a altura da Sprite, baseado no tamanho da imagem atual.
+     * ObtÃ©m a altura da Sprite, baseado no tamanho da imagem atual.
      */
     public int getHeight() {
         return anim.getImage().getHeight( null );
@@ -119,7 +119,7 @@ public class Sprite {
     
     
     /**
-     * Obtém a imagem atual da Sprite.
+     * ObtÃ©m a imagem atual da Sprite.
      */
     public Image getImage() {
         return anim.getImage();
@@ -127,7 +127,7 @@ public class Sprite {
     
     
     /**
-     * Clona a Sprite. Não clona a posição ou valocidade.
+     * Clona a Sprite. NÃ£o clona a posiÃ§Ã£o ou valocidade.
      */
     public Object clone() {
         return new Sprite( anim );

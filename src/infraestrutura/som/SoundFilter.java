@@ -2,11 +2,11 @@ package infraestrutura.som;
 
 /**
  * Classe abstrata desenvolvida para filtrar amostras de som.
- * Como os SoundFilters podem usar buferização interna de amostras,
+ * Como os SoundFilters podem usar buferizaÃ§Ã£o interna de amostras,
  * um novo SoundFilter deve ser criado para cada som executado.
- * Entretanto, SoundFilters podem ser reusados após serem finalizados chamando o 
- * método reset().
- * Assume-se que todas as amostrars são de 16-bit, sinalizadas, e no formato 
+ * Entretanto, SoundFilters podem ser reusados apÃ³s serem finalizados chamando o 
+ * mÃ©todo reset().
+ * Assume-se que todas as amostrars sÃ£o de 16-bit, sinalizadas, e no formato 
  * "little-endian".
  * @see FilteredSoundStream
  *
@@ -15,18 +15,18 @@ package infraestrutura.som;
 public abstract class SoundFilter {
     
     /**
-     * Reseta esse SoundFilter. Não faz nada por padrão.
+     * Reseta esse SoundFilter. NÃ£o faz nada por padrÃ£o.
      */
     public void reset() {
-        // não faz nada
+        // nÃ£o faz nada
     }
     
     
     /**
-     * Obtém o tamanho restante, em bytes, que esre filtro executa após o som 
-     * ser finalizado.that this filter. Um exemplo pode ser um éco que executa 
+     * ObtÃ©m o tamanho restante, em bytes, que esre filtro executa apÃ³s o som 
+     * ser finalizado.that this filter. Um exemplo pode ser um Ã©co que executa 
      * mais que o seu som original.
-     * Esse método retorna 0 por padrão.
+     * Esse mÃ©todo retorna 0 por padrÃ£o.
      */
     public int getRemainingSize() {
         return 0;
@@ -45,15 +45,15 @@ public abstract class SoundFilter {
     /**
      * Filtra um array de amostras. As amostras devem ser de 16-bit, 
      * sinalizadas e no formato "little-endian". 
-     * Esse método deve ser implementado pelas subclasses. Atenção, o offset e 
-     * o tamanho referen-se ao número de bytes e não amostras.
+     * Esse mÃ©todo deve ser implementado pelas subclasses. AtenÃ§Ã£o, o offset e 
+     * o tamanho referen-se ao nÃºmero de bytes e nÃ£o amostras.
      */
     public abstract void filter(
             byte[] samples, int offset, int length );
     
     
     /**
-     * Método de conveniência para obter uma amostra de 16-bit de um 
+     * MÃ©todo de conveniÃªncia para obter uma amostra de 16-bit de um 
      * array de bytes. As amostras devem ser de 16-bit, 
      * sinalizadas e no formato "little-endian".
      */
@@ -65,7 +65,7 @@ public abstract class SoundFilter {
     
     
     /**
-     * Método de conveniência para configurar uma amostra de 16-bit em um array 
+     * MÃ©todo de conveniÃªncia para configurar uma amostra de 16-bit em um array 
      * de bytes. As amostras devem ser de 16-bit, 
      * sinalizadas e no formato "little-endian".
      */

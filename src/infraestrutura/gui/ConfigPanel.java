@@ -5,7 +5,7 @@ import java.awt.geom.*;
 import javax.swing.*;
 
 /**
- * Painel de configuração do jogo.
+ * Painel de configuraÃ§Ã£o do jogo.
  *
  * @author David Buzatto
  */

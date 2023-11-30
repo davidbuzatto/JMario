@@ -3,7 +3,7 @@ package infraestrutura.util;
 import java.util.LinkedList;
 
 /**
- * Um Thread Pool È um grupo com quantidade limitada de Threads que s„o usadas 
+ * Um Thread Pool √© um grupo com quantidade limitada de Threads que s√£o usadas 
  * para executar tarefas.
  *
  * @author David Buzatto
@@ -21,7 +21,7 @@ public class ThreadPool extends ThreadGroup {
     /**
      * Cria um novo Pool de Threads
      *
-     * @param numThreads O n˙mero de threads no pool.
+     * @param numThreads O n√∫mero de threads no pool.
      */
     public ThreadPool( int numThreads ) {
         
@@ -39,7 +39,7 @@ public class ThreadPool extends ThreadGroup {
     
     /**
      * Requisita uma nova tarefa para ser executada.
-     * Este mÈtodo retorna imediatamente, e a tarefa executa na prÛxima thread
+     * Este m√©todo retorna imediatamente, e a tarefa executa na pr√≥xima thread
      * parada no pool de threads.
      */
     public synchronized void runTask( Runnable task ) {
@@ -73,8 +73,8 @@ public class ThreadPool extends ThreadGroup {
     
     /**
      * Fecha este pool de threads e retorna imediatamente.
-     * Todas as thredas s„o paradas, e todas as tarefas que est„o aguardando
-     * n„o s„o executadas. Quando o pool È fechado, mais nenhuma outra
+     * Todas as thredas s√£o paradas, e todas as tarefas que est√£o aguardando
+     * n√£o s√£o executadas. Quando o pool √© fechado, mais nenhuma outra
      * tarefa pode ser executada nesse pool.
      */
     public synchronized void close() {
@@ -88,14 +88,14 @@ public class ThreadPool extends ThreadGroup {
     }
     
     /**
-     * Fecha este pool de threads e aguarda que todas as threads que est„o 
-     * executando sejam finalizadas. Todas as tarefas que est„o aguardando
-     * s„o executadas.
+     * Fecha este pool de threads e aguarda que todas as threads que est√£o 
+     * executando sejam finalizadas. Todas as tarefas que est√£o aguardando
+     * s√£o executadas.
      */
     public void join() {
         
-        /* notifica todas as threads que est„o aguardando que este pool n„o
-         * est· mais "vivo". */
+        /* notifica todas as threads que est√£o aguardando que este pool n√£o
+         * est√° mais "vivo". */
         synchronized ( this ) {
             isAlive = false;
             notifyAll();
@@ -113,7 +113,7 @@ public class ThreadPool extends ThreadGroup {
     }
     
     /**
-     * Uma PooledThread È uma Thread no grupo da ThreadPool, desenhada para
+     * Uma PooledThread √© uma Thread no grupo da ThreadPool, desenhada para
      * executar tarefas.
      */
     private class PooledThread extends Thread {
@@ -127,7 +127,7 @@ public class ThreadPool extends ThreadGroup {
             
             while ( !isInterrupted() ) {
                 try {
-                    // obtÈm uma tarefa para executar
+                    // obt√©m uma tarefa para executar
                     Runnable task = null;
                     
                     try {
@@ -136,13 +136,13 @@ public class ThreadPool extends ThreadGroup {
                         
                     } catch ( InterruptedException exc ) { }
                     
-                    /* se o getTask retorna num ou est· interrompido, fecha esta
+                    /* se o getTask retorna num ou est√° interrompido, fecha esta
                      * thread retornando. */
                     if ( task == null ) {
                         return;
                     }
                     
-                    // executa a thread e "come" qualquer excess„o que esta lance.
+                    // executa a thread e "come" qualquer excess√£o que esta lance.
                     try {
                         task.run();
                     } catch ( Throwable t ) {

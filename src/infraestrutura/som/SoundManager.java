@@ -7,9 +7,9 @@ import infraestrutura.util.*;
 
 
 /**
- * A classe SoundManager gerencia a execuÁ„o dos sons. A SoundManager È um 
+ * A classe SoundManager gerencia a execu√ß√£o dos sons. A SoundManager √© um 
  * ThreadPool, onde cada thread executa um som por vez. Isso permite que o 
- * SoundManager facilmente limite o tamanho de sons simult‚neos que s„o executados.
+ * SoundManager facilmente limite o tamanho de sons simult√¢neos que s√£o executados.
  *
  * @author David Buzatto
  */
@@ -22,7 +22,7 @@ public class SoundManager extends ThreadPool {
     private boolean paused;
     
     /**
-     * Cria um novo SoundManager usando o n˙mero m·qimo de sons executados 
+     * Cria um novo SoundManager usando o n√∫mero m√°qimo de sons executados 
      * simultaneamente.
      */
     public SoundManager( AudioFormat playbackFormat ) {
@@ -32,7 +32,7 @@ public class SoundManager extends ThreadPool {
     
     
     /**
-     * Cria um novo SoundManager usando o n˙mero m·qimo de sons executados 
+     * Cria um novo SoundManager usando o n√∫mero m√°qimo de sons executados 
      * simultaneamente.
      */
     public SoundManager( AudioFormat playbackFormat,
@@ -42,7 +42,7 @@ public class SoundManager extends ThreadPool {
         localLine = new ThreadLocal< SourceDataLine >();
         localBuffer = new ThreadLocal< byte[] >();
         pausedLock = new Object();
-        // notifica o thread pool que est· tudo ok para iniciar
+        // notifica o thread pool que est√° tudo ok para iniciar
         synchronized ( this ) {
             notifyAll();
         }
@@ -50,7 +50,7 @@ public class SoundManager extends ThreadPool {
     
     
     /**
-     * ObtÈm o n˙mero m·ximo de sons que pode ser executados;
+     * Obt√©m o n√∫mero m√°ximo de sons que pode ser executados;
      */
     public static int getMaxSimultaneousSounds( AudioFormat playbackFormat) {
         DataLine.Info lineInfo = new DataLine.Info(
@@ -73,7 +73,7 @@ public class SoundManager extends ThreadPool {
         // sinal para parar
         setPaused( false );
         
-        // fecha o mixer (para qualquer som que est· executando)
+        // fecha o mixer (para qualquer som que est√° executando)
         Mixer mixer = AudioSystem.getMixer( null );
         if ( mixer.isOpen() ) {
             mixer.close();
@@ -94,7 +94,7 @@ public class SoundManager extends ThreadPool {
     
     
     /**
-     * Configura o estado de pausa. Os sons podem n„o pausar imediatamente.
+     * Configura o estado de pausa. Os sons podem n√£o pausar imediatamente.
      */
     public void setPaused( boolean paused ) {
         if ( this.paused != paused ) {
@@ -133,11 +133,11 @@ public class SoundManager extends ThreadPool {
             return null;
         }
         
-        // obtÈm o n˙mero de bytes a ler
+        // obt√©m o n√∫mero de bytes a ler
         int length = ( int ) ( audioStream.getFrameLength() *
                 audioStream.getFormat().getFrameSize() );
         
-        // lÍ todo o stream
+        // l√™ todo o stream
         byte[] samples = new byte[ length ];
         DataInputStream is = new DataInputStream( audioStream );
         try {
@@ -164,7 +164,7 @@ public class SoundManager extends ThreadPool {
             AudioInputStream source =
                     AudioSystem.getAudioInputStream( getClass().getResource( filename ) );
             
-            // converte para o formato de execuÁ„o
+            // converte para o formato de execu√ß√£o
             return AudioSystem.getAudioInputStream(
                     playbackFormat, source );
             
@@ -181,7 +181,7 @@ public class SoundManager extends ThreadPool {
     
     
     /**
-     * Executa um som. Esse mÈtodo retorna imediatamente.
+     * Executa um som. Esse m√©todo retorna imediatamente.
      */
     public InputStream play( Sound sound ) {
         return play( sound, null, false );
@@ -190,7 +190,7 @@ public class SoundManager extends ThreadPool {
     
     /**
      * Executa um som com um SoundFilter especificado. 
-     * Esse mÈtodo retorna imediatamente.
+     * Esse m√©todo retorna imediatamente.
      */
     public InputStream play( Sound sound, SoundFilter filter,
             boolean loop ) {
@@ -214,7 +214,7 @@ public class SoundManager extends ThreadPool {
     
     /**
      * Executa um som de um InputStream.
-     * Esse mÈtodo retorna imediatamente.
+     * Esse m√©todo retorna imediatamente.
      */
     public InputStream play( InputStream is ) {
         return play( is, null );
@@ -223,7 +223,7 @@ public class SoundManager extends ThreadPool {
     
     /**
      * Executa um som de um InputStream com um filtro opcional.
-     * Esse mÈtodo retorna imediatamente.
+     * Esse m√©todo retorna imediatamente.
      */
     public InputStream play( InputStream is, SoundFilter filter ) {
         if ( is != null ) {
@@ -262,7 +262,7 @@ public class SoundManager extends ThreadPool {
             line = ( SourceDataLine ) AudioSystem.getLine( lineInfo );
             line.open( playbackFormat, bufferSize );
         } catch ( LineUnavailableException ex ) {
-            // a linha n„o est· disponÌvel, sinaliza para finalizar a thread
+            // a linha n√£o est√° dispon√≠vel, sinaliza para finalizar a thread
             Thread.currentThread().interrupt();
             return;
         }
@@ -291,10 +291,10 @@ public class SoundManager extends ThreadPool {
     
     
     /**
-     * A classe SoundPlauer È uma tareda para as PooledThreads executarem. Este
-     * recebe uma linha da thread e um buffer de bytes das vari·veis da 
+     * A classe SoundPlauer √© uma tareda para as PooledThreads executarem. Este
+     * recebe uma linha da thread e um buffer de bytes das vari√°veis da 
      * ThreadLocal e executa o som de um InputStream.
-     * <p>Essa classe sÛ funciona quando chamada de dentro de uma PooledThread.
+     * <p>Essa classe s√≥ funciona quando chamada de dentro de uma PooledThread.
      */
     protected class SoundPlayer implements Runnable {
         
@@ -306,12 +306,12 @@ public class SoundManager extends ThreadPool {
         
         public void run() {
             
-            // obtÈm a linha e o buffer do ThreadLocals
+            // obt√©m a linha e o buffer do ThreadLocals
             SourceDataLine line = ( SourceDataLine ) localLine.get();
             byte[] buffer = ( byte[] ) localBuffer.get();
             
             if ( line == null || buffer == null ) {
-                // linha n„o disponÌvel
+                // linha n√£o dispon√≠vel
                 return;
             }
             
@@ -322,7 +322,7 @@ public class SoundManager extends ThreadPool {
                 
                 while ( numBytesRead != -1 ) {
                     
-                    // se pausado, aguarda atÈ sair da pausa
+                    // se pausado, aguarda at√© sair da pausa
                     synchronized ( pausedLock ) {
                         if ( paused ) {
                             try {

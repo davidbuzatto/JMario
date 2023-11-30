@@ -1,7 +1,7 @@
 package infraestrutura.som;
 
 /**
- * A classe Sound È um container para amostras de som. As amostras de som s„o de
+ * A classe Sound √© um container para amostras de som. As amostras de som s√£o de
  * formato desconhecido e armazenadas como um array de bytes.
  *
  * @author David Buzatto
@@ -12,7 +12,7 @@ public class Sound {
     
     /**
      * Cria um novo objeto Sound com o array de bytes especificado.
-     * O array n„o È copiado.
+     * O array n√£o √© copiado.
      */
     public Sound( byte[] samples ) {
         this.samples = samples;

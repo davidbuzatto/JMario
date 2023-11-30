@@ -3,7 +3,7 @@ package jogo.sprites;
 import infraestrutura.grafico.Animation;
 
 /**
- * Um Bomb È uma Creature que se move devagar no ch„o.
+ * Um Bomb √© uma Creature que se move devagar no ch√£o.
  */
 public class Bomb extends Creature {
     

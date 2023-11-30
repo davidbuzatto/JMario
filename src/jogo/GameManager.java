@@ -41,17 +41,17 @@ public class GameManager extends GameCore {
     private static final AudioFormat PLAYBACK_FORMAT =
             new AudioFormat( 11025, 8, 1, true, false );
     
-    // quantidade m·xima de fases (importante para a finalizaÁ„o)
+    // quantidade m√°xima de fases (importante para a finaliza√ß√£o)
     private static int QUANTIDADE_FASES = 3;
     
     private static final int DRUM_TRACK = 1;
     
     public static final float GRAVITY = 0.002f;
     
-    // indica se o jogo est· pausado
+    // indica se o jogo est√° pausado
     private boolean paused;
     
-    // indica se deve ir para a prÛxima fase
+    // indica se deve ir para a pr√≥xima fase
     private boolean goToNextLevel;
     
     // indica que o jogo terminou
@@ -77,7 +77,7 @@ public class GameManager extends GameCore {
     private InputManager inputManager;
     private TileMapRenderer renderer;
     
-    // aÁıes
+    // a√ß√µes
     private GameAction moveLeft;
     private GameAction moveRight;
     private GameAction moveDown;
@@ -128,19 +128,19 @@ public class GameManager extends GameCore {
         
         super.init();
         
-        // assegura que os componentes Swing n„o ir„o "se pintar"
+        // assegura que os componentes Swing n√£o ir√£o "se pintar"
         //NullRepaintManager.install();
         
         // inicia o input manager
         initInput();
         
-        // configura como n„o pausado
+        // configura como n√£o pausado
         setPaused( false );
         
-        // configura se È para ir para a prÛxima fase
+        // configura se √© para ir para a pr√≥xima fase
         setGoToNextLevel( false );
         
-        // configura que o jogo n„o terminou
+        // configura que o jogo n√£o terminou
         setGameOver( false );
         
         // inicia o resource manager
@@ -173,9 +173,9 @@ public class GameManager extends GameCore {
         quantidadePontosFase = 0;
         quantidadeEstrelas = 0;
         
-        // inicia os contadores de animaÁ„o
+        // inicia os contadores de anima√ß√£o
         quadrosAbertura = 50;
-        quadroAtualAbertura = 0; // zerado fazer animaÁ„o na carga do jogo
+        quadroAtualAbertura = 0; // zerado fazer anima√ß√£o na carga do jogo
         
         quadrosFechamento = 50;
         quadroAtualFechamento = quadrosFechamento;
@@ -206,7 +206,7 @@ public class GameManager extends GameCore {
         imagemInterface8 = resourceManager.loadImage( "interface8.png" );
         imagemInterface9 = resourceManager.loadImage( "interface9.png" );
         
-        // inicia a m˙sica
+        // inicia a m√∫sica
         midiPlayerMusica = new MidiPlayer();
         midiPlayerMusicaFinalFase = new MidiPlayer();
         midiPlayerMusicaGameOver = new MidiPlayer();
@@ -285,7 +285,7 @@ public class GameManager extends GameCore {
             
             if ( jump.isPressed() ) {
                 
-                // toca apenas se o jogador n„o estiver pulando
+                // toca apenas se o jogador n√£o estiver pulando
                 if ( !player.isPulando() )
                     soundManager.play( jumpSound );
                 
@@ -293,24 +293,24 @@ public class GameManager extends GameCore {
                 
             }
             
-            // verifica se È para correr
+            // verifica se √© para correr
             if ( run.isPressed() ) {
                 player.setMaxSpeed( 0.5f );
             } else {
                 player.setMaxSpeed( 0.3f );
             }
             
-            // se a pausa for pressionada e as animaÁıes de abertura/fechamento
-            // n„o estiverem sendo executadas
+            // se a pausa for pressionada e as anima√ß√µes de abertura/fechamento
+            // n√£o estiverem sendo executadas
             if ( pause.isPressed() &&
                     quadroAtualAbertura == quadrosAbertura && 
                     quadroAtualFechamento == quadrosFechamento ) {
                 setPaused( !isPaused() );
                 
-                // se estiver pausado, para a m˙sica
+                // se estiver pausado, para a m√∫sica
                 if ( isPaused() ) {
                     
-                    // se o player n„o estiver pausado, pausa
+                    // se o player n√£o estiver pausado, pausa
                     if ( !midiPlayerMusica.isPaused() ) {
                         
                         midiPlayerMusica.stop();
@@ -325,7 +325,7 @@ public class GameManager extends GameCore {
             }
             
             if ( configAction.isPressed() ) {
-                //TODO - implementar configuraÁ„o
+                //TODO - implementar configura√ß√£o
                 System.out.println( "implementar..." );
             }
             
@@ -340,18 +340,18 @@ public class GameManager extends GameCore {
         
         renderer.draw( g, map, screen.getWidth(), screen.getHeight() );
         
-        // desenha a interface gr·fica
+        // desenha a interface gr√°fica
         drawInterface( g );
         
-        // desenha a animaÁ„o de abertura de tela
+        // desenha a anima√ß√£o de abertura de tela
         if ( quadroAtualAbertura < quadrosAbertura && !isGoToNextLevel() )
             drawAbertura( g );
         
-        // desenha a animaÁ„o de fechamento de tela
+        // desenha a anima√ß√£o de fechamento de tela
         if ( quadroAtualFechamento < quadrosFechamento && !isGoToNextLevel() )
             drawFechamento( g );
         
-        // desenha a tela de passagem de fase (transferÍncia de pontos)
+        // desenha a tela de passagem de fase (transfer√™ncia de pontos)
         if ( isGoToNextLevel() )
             drawPointTransfer( g );
         
@@ -359,7 +359,7 @@ public class GameManager extends GameCore {
         if ( isGameOver() )
             drawGameOver( g );
         
-        // desenha a animaÁ„o de pausa
+        // desenha a anima√ß√£o de pausa
         if ( isPaused() )
             drawPause( g );
         
@@ -367,7 +367,7 @@ public class GameManager extends GameCore {
     
     
     /**
-     * ObtÈm o mapa atual.
+     * Obt√©m o mapa atual.
      */
     public TileMap getMap() {
         return map;
@@ -392,8 +392,8 @@ public class GameManager extends GameCore {
     
     
     /**
-     * ObtÈm o tile que a Sprite colide. Somente X ou Y da Sprite deve ser
-     * mudado n„o ambos. Retorna null se nenhuma colis„o for detectada.
+     * Obt√©m o tile que a Sprite colide. Somente X ou Y da Sprite deve ser
+     * mudado n√£o ambos. Retorna null se nenhuma colis√£o for detectada.
      */
     public Point getTileCollision( Sprite sprite,
             float newX, float newY ) {
@@ -403,7 +403,7 @@ public class GameManager extends GameCore {
         float toX = Math.max( sprite.getX(), newX );
         float toY = Math.max( sprite.getY(), newY );
         
-        // obtem a localizaÁ„o do tile
+        // obtem a localiza√ß√£o do tile
         int fromTileX = TileMapRenderer.pixelsToTiles( fromX );
         int fromTileY = TileMapRenderer.pixelsToTiles( fromY );
         int toTileX = TileMapRenderer.pixelsToTiles(
@@ -411,14 +411,14 @@ public class GameManager extends GameCore {
         int toTileY = TileMapRenderer.pixelsToTiles(
                 toY + sprite.getHeight() - 1 );
         
-        // checa cada tile para verificar a colis„o
+        // checa cada tile para verificar a colis√£o
         for ( int x = fromTileX; x <= toTileX; x++ ) {
             
             for ( int y = fromTileY; y <= toTileY; y++ ) {
                 
                 if ( x < 0 || x >= map.getWidth() ||
                         map.getTile( x, y ) != null ) {
-                    // colis„o achada, retorna o tile
+                    // colis√£o achada, retorna o tile
                     pointCache.setLocation( x, y );
                     return pointCache;
                 }
@@ -427,7 +427,7 @@ public class GameManager extends GameCore {
             
         }
         
-        // nenhuma colis„o achada
+        // nenhuma colis√£o achada
         return null;
         
     }
@@ -435,17 +435,17 @@ public class GameManager extends GameCore {
     
     /**
      * Verifica se duas sprites colidiram entre si. Retorna false caso duas
-     * Sprites sejam a mesma. Retorna false se um uma das Sprites n„o estiver
+     * Sprites sejam a mesma. Retorna false se um uma das Sprites n√£o estiver
      * viva.
      */
     public boolean isCollision( Sprite s1, Sprite s2 ) {
         
-        // se as sprites s„o a mesma, retorn false
+        // se as sprites s√£o a mesma, retorn false
         if ( s1 == s2 ) {
             return false;
         }
         
-        // se uma das sprites È uma criatura morta, retorna false
+        // se uma das sprites √© uma criatura morta, retorna false
         if ( s1 instanceof Creature && ! ( ( Creature ) s1 ).isAlive() ) {
             return false;
         }
@@ -453,7 +453,7 @@ public class GameManager extends GameCore {
             return false;
         }
         
-        // obtem a localizaÁ„o em pixel das sprites
+        // obtem a localiza√ß√£o em pixel das sprites
         int s1x = Math.round( s1.getX() );
         int s1y = Math.round( s1.getY() );
         int s2x = Math.round( s2.getX() );
@@ -468,7 +468,7 @@ public class GameManager extends GameCore {
     
     
     /**
-     * ObtÈm a Sprite que colide com uma Sprite especÌfica,
+     * Obt√©m a Sprite que colide com uma Sprite espec√≠fica,
      * ou null se nenhum Sprite colide com a Sprite especificada.
      */
     public Sprite getSpriteCollision(Sprite sprite) {
@@ -482,30 +482,30 @@ public class GameManager extends GameCore {
             
             if ( isCollision( sprite, otherSprite ) ) {
                 
-                // colis„o encontrada, retorna a sprite
+                // colis√£o encontrada, retorna a sprite
                 return otherSprite;
                 
             }
             
         }
         
-        // sem colis„o
+        // sem colis√£o
         return null;
     }
     
     
     /**
-     * Atualiza a animaÁ„o, posiÁ„o e velocidade de todas as sprites do mapa
+     * Atualiza a anima√ß√£o, posi√ß√£o e velocidade de todas as sprites do mapa
      * atual.
      */
     public void update( long elapsedTime ) {       
         
         Creature player = ( Creature ) map.getPlayer();
         
-        // jogador est· morto, reinicia o mapa
+        // jogador est√° morto, reinicia o mapa
         if ( player.getState() == Creature.STATE_DEAD ) {
             
-            // se n„o h· mais vidas, mostra a tela de fim de jogo e termina
+            // se n√£o h√° mais vidas, mostra a tela de fim de jogo e termina
             if ( quantidadeVidas == 0 ) {
                 
                 setGameOver( true );
@@ -521,7 +521,7 @@ public class GameManager extends GameCore {
                 // reinicia o som
                 midiPlayerMusica.play( musica, true );
                 
-                // reseta os contadores de pontuaÁ„o
+                // reseta os contadores de pontua√ß√£o
                 quantidadeCoins = 0;
                 quantidadePontosFase = 0;
                 
@@ -534,7 +534,7 @@ public class GameManager extends GameCore {
         // verifica a entrada do teclado/mouse
         checkInput( elapsedTime );
         
-        // verifica se est· pausado
+        // verifica se est√° pausado
         if ( !isPaused() && !isGoToNextLevel() ) {
             
             // atualiza o jogador
@@ -560,7 +560,7 @@ public class GameManager extends GameCore {
                     
                 }
                 
-                // atualizaÁ„o normal
+                // atualiza√ß√£o normal
                 sprite.update( elapsedTime );
                 
             }
@@ -571,8 +571,8 @@ public class GameManager extends GameCore {
     
     
     /**
-     * Atualiza as criaturas, usando gravidade para as criaturas que n„o est„o
-     * voando e verifica colis„o.
+     * Atualiza as criaturas, usando gravidade para as criaturas que n√£o est√£o
+     * voando e verifica colis√£o.
      */
     private void updateCreature( Creature creature, long elapsedTime ) {
         
@@ -636,13 +636,13 @@ public class GameManager extends GameCore {
         // se o jogador cai (y muito alto), tira vida e reinicia
         if ( creature instanceof Player ) {
             
-            // se o jogador est· alÈm do pixel 2000 de altura, morre
+            // se o jogador est√° al√©m do pixel 2000 de altura, morre
             if ( creature.getY() > 2000 ) {
                 
                 // se tem vidas
                 if ( quantidadeVidas != 0 ) {
                     
-                    // p·ra a m˙sica
+                    // p√°ra a m√∫sica
                     midiPlayerMusica.stop();
 
                     // reproduz o som
@@ -652,7 +652,7 @@ public class GameManager extends GameCore {
 
                     quantidadeVidas--;
 
-                    // dorme por 4 segundos para esperar a m˙sica ser reproduzida
+                    // dorme por 4 segundos para esperar a m√∫sica ser reproduzida
                     try {
                         Thread.sleep( 4000 );
                     } catch ( InterruptedException exc ) { }
@@ -670,8 +670,8 @@ public class GameManager extends GameCore {
     
     
     /**
-     * Verifica colis„o entre o jogador e outras sprites. If canKill È true,
-     * a colis„o com as criaturas ir· mat·-las.
+     * Verifica colis√£o entre o jogador e outras sprites. If canKill √© true,
+     * a colis√£o com as criaturas ir√° mat√°-las.
      */
     public void checkPlayerCollision( Player player,
             boolean canKill ) {
@@ -680,7 +680,7 @@ public class GameManager extends GameCore {
             return;
         }
         
-        // verifica a colis„o do jogador com outras Sprites
+        // verifica a colis√£o do jogador com outras Sprites
         Sprite collisionSprite = getSpriteCollision( player );
         
         if ( collisionSprite instanceof PowerUp ) {
@@ -712,7 +712,7 @@ public class GameManager extends GameCore {
                 // decrementa quantidade de vidas
                 quantidadeVidas--;
                 
-                // p·ra a m˙sica
+                // p√°ra a m√∫sica
                 midiPlayerMusica.stop();
                 
                 // reproduz o som
@@ -729,7 +729,7 @@ public class GameManager extends GameCore {
     
     
     /**
-     * D· ao jogador o powerUp especificado e remove o mesmo do mapa.
+     * D√° ao jogador o powerUp especificado e remove o mesmo do mapa.
      */
     public void acquirePowerUp( PowerUp powerUp ) {
         
@@ -747,7 +747,7 @@ public class GameManager extends GameCore {
             // reproduz o som
             soundManager.play( coinSound );
             
-            // se tiver uma quantidade m˙ltipla de 100
+            // se tiver uma quantidade m√∫ltipla de 100
             if ( quantidadeCoins % 100 == 0 ) {
                 
                 // ganha uma vida
@@ -763,7 +763,7 @@ public class GameManager extends GameCore {
             // soma 1000 pontos
             quantidadePontosFase += 1000;
             
-            // altera a m˙sica
+            // altera a m√∫sica
             soundManager.play( coinSound );
             
             // reproduz o som
@@ -793,21 +793,21 @@ public class GameManager extends GameCore {
             // prepara fechamento
             quadroAtualAbertura = 0;
                 
-            // avanÁa no mapa
+            // avan√ßa no mapa
             soundManager.play( powerUpSound );
             
-            // sinaliza para ir para a prÛxima fase
+            // sinaliza para ir para a pr√≥xima fase
             setGoToNextLevel( true );
             
-            // p·ra a m˙sica e toca a m˙sica de nova fase
+            // p√°ra a m√∫sica e toca a m√∫sica de nova fase
             midiPlayerMusica.stop();
             
             midiPlayerMusicaFinalFase.play( musicaFinalFase, false );
             
             //midiPlayer2
             
-            // a responsabilidade de ir para o prÛximo mapa e carregar o fundo
-            // È fo mÈtodo drawPointTransfer
+            // a responsabilidade de ir para o pr√≥ximo mapa e carregar o fundo
+            // √© fo m√©todo drawPointTransfer
             
         }
         
@@ -815,7 +815,7 @@ public class GameManager extends GameCore {
     
     
     /**
-     * MÈtodo para desenhar a interface gr·fica.
+     * M√©todo para desenhar a interface gr√°fica.
      */
     private void drawInterface( Graphics2D g2d ) {
         
@@ -845,7 +845,7 @@ public class GameManager extends GameCore {
     
     
     /**
-     * MÈtodo que recebe um inteiro e monta as imagens correspondentes.
+     * M√©todo que recebe um inteiro e monta as imagens correspondentes.
      */
     private void montaNumero( Graphics2D g2d, int numero, int x, int y, int kern  ) {
         
@@ -922,7 +922,7 @@ public class GameManager extends GameCore {
     
     
     /**
-     * Desenha a abertura de tela (inÌcio e reinÌcio de fase).
+     * Desenha a abertura de tela (in√≠cio e rein√≠cio de fase).
      */
     private void drawAbertura( Graphics2D g2d ) {
         
@@ -966,7 +966,7 @@ public class GameManager extends GameCore {
     
     
     /**
-     * Desenha a transferÍncia de pontos.
+     * Desenha a transfer√™ncia de pontos.
      */
     private void drawPointTransfer( Graphics2D g2d ) {
         
@@ -978,11 +978,11 @@ public class GameManager extends GameCore {
         int xJogo = largura / 2 - imagemInterfaceJogoFinalizado.getWidth( null ) / 2;
         int xPontuacao = largura / 2 - imagemInterfacePontuacao.getWidth( null ) / 2;
         
-        // p·ra a m˙sica
+        // p√°ra a m√∫sica
         if ( !midiPlayerMusica.isPaused() )
             midiPlayerMusica.stop();
         
-        // desenha o ret‚ngulo preto
+        // desenha o ret√¢ngulo preto
         g2d.fillRect( 0, 0, largura, altura );
         
         if ( quantidadeEstrelas != QUANTIDADE_FASES )
@@ -1013,27 +1013,27 @@ public class GameManager extends GameCore {
             soundManager.play( coinSound );
         }
         
-        // se ja transferiu os pontos e se a espera terminou, carrega prÛxima fase
+        // se ja transferiu os pontos e se a espera terminou, carrega pr√≥xima fase
         if ( quantidadePontosFase == 0 && 
                 !midiPlayerMusicaFinalFase.getSequencer().isRunning() ) {
             
-            // sinaliza para ir para a prÛxima fase
+            // sinaliza para ir para a pr√≥xima fase
             setGoToNextLevel( false );
             
             // seta o fundo
             renderer.setBackground( resourceManager.loadImage(
                     "background" + quantidadeEstrelas + ".png" ) );
             
-            // carrega o prÛximo mapa
+            // carrega o pr√≥ximo mapa
             map = resourceManager.loadNextMap();
             
-            // para a m˙sica do final
+            // para a m√∫sica do final
             midiPlayerMusicaFinalFase.stop();
             
-            // troca a m˙sica
+            // troca a m√∫sica
             musica = midiPlayerMusica.getSequence( "music" + quantidadeEstrelas + ".midi" );
             
-            // coloca a m˙sica para rodar de novo
+            // coloca a m√∫sica para rodar de novo
             midiPlayerMusica.play( musica, true );
             
             // zera as moedas
@@ -1057,20 +1057,20 @@ public class GameManager extends GameCore {
         int x = largura / 2 - imagemInterfaceGameOver.getWidth( null ) / 2;
         int y = largura / 2 - imagemInterfaceGameOver.getWidth( null ) / 2;
         
-        // p·ra a m˙sica
+        // p√°ra a m√∫sica
         if ( !midiPlayerMusica.isPaused() )
             midiPlayerMusica.stop();
         
-        // toca a m˙sica de game over
+        // toca a m√∫sica de game over
         if ( midiPlayerMusicaGameOver.isPaused() );
             midiPlayerMusicaGameOver.play( musicaGameOver, false );
         
-        // desenha o ret‚ngulo preto
+        // desenha o ret√¢ngulo preto
         g2d.fillRect( 0, 0, largura, altura );
         
         g2d.drawImage( imagemInterfaceGameOver, x, y, null );
         
-        // se todos os quadros j· passaram, finaliza o jogo
+        // se todos os quadros j√° passaram, finaliza o jogo
         if ( quadroAtualGameOver == quadrosGameOver ) {
             
             stop();
@@ -1084,7 +1084,7 @@ public class GameManager extends GameCore {
     
     
     /**
-     * Faz pausar a execuÁ„o.
+     * Faz pausar a execu√ß√£o.
      */
     public void setPaused( boolean p ) {
         

@@ -6,7 +6,7 @@ import java.lang.reflect.*;
 import javax.swing.*;
 
 /**
- * A classe ScreenManager gerencia a inicializaÁ„o e visualizaÁ„o de
+ * A classe ScreenManager gerencia a inicializa√ß√£o e visualiza√ß√£o de
  * modos de tela cheia.
  *
  * @author David Buzatto
@@ -29,8 +29,8 @@ public class ScreenManager {
     
     
     /**
-     * Retorna uma lista de modos de visualizaÁ„o compatÌveis com o dispositivo
-     * padr„o no sistema.
+     * Retorna uma lista de modos de visualiza√ß√£o compat√≠veis com o dispositivo
+     * padr√£o no sistema.
      */
     public DisplayMode[] getCompatibleDisplayModes() {
         
@@ -40,8 +40,8 @@ public class ScreenManager {
     
     
     /**
-     * Retorna o primeiro modo compatÌvel da lista de modos.
-     * Retorna null se nenhum modo È compatÌvel.
+     * Retorna o primeiro modo compat√≠vel da lista de modos.
+     * Retorna null se nenhum modo √© compat√≠vel.
      */
     public DisplayMode findFirstCompatibleMode( DisplayMode[] modes ) {
         
@@ -61,7 +61,7 @@ public class ScreenManager {
     
     
     /**
-     * Retorna o modo de visualizaÁ„o atual.
+     * Retorna o modo de visualiza√ß√£o atual.
      */
     public DisplayMode getCurrentDisplayMode() {
         return device.getDisplayMode();
@@ -69,12 +69,12 @@ public class ScreenManager {
     
     
     /**
-     * Determina se dois modos de visualizaÁ„o s„o iguais.
-     * Dois modos de visualizaÁ„o s„o iguais se eles tÍm a mesma resoluÁ„o,
-     * profundidade de bits e taxa de atualizaÁ„o. A profundidade de bits È
+     * Determina se dois modos de visualiza√ß√£o s√£o iguais.
+     * Dois modos de visualiza√ß√£o s√£o iguais se eles t√™m a mesma resolu√ß√£o,
+     * profundidade de bits e taxa de atualiza√ß√£o. A profundidade de bits √©
      * ignorada se um dos modos tem uma profundidade de DisplayMode.BIT_DEPTH_MULTI.
-     * Da mesma forma, a taxa de atualizaÁ„o È ignorada se um dos modos de
-     * visualizaÁ„o tiver uma taxa de DisplayMode.REFRESH_RATE_UNKNOWN.
+     * Da mesma forma, a taxa de atualiza√ß√£o √© ignorada se um dos modos de
+     * visualiza√ß√£o tiver uma taxa de DisplayMode.REFRESH_RATE_UNKNOWN.
      */
     public boolean displayModesMatch( DisplayMode mode1, DisplayMode mode2 ) {
         
@@ -101,12 +101,12 @@ public class ScreenManager {
     
     
     /**
-     * Entra no modo de tela cheia o muda o modo de visualizaÁ„o.
-     * Se o modo de visualizaÁ„o especificado È null ou n„o compatÌvel com
-     * este dispositivo, os o modo de visualizaÁ„o n„o puder ser alterado nesse
-     * sistema, o modo de visualizaÁ„o atual È utilizado.
+     * Entra no modo de tela cheia o muda o modo de visualiza√ß√£o.
+     * Se o modo de visualiza√ß√£o especificado √© null ou n√£o compat√≠vel com
+     * este dispositivo, os o modo de visualiza√ß√£o n√£o puder ser alterado nesse
+     * sistema, o modo de visualiza√ß√£o atual √© utilizado.
      * <p>
-     * A visualizaÁ„o usa um BufferStrategy com 2 buffers.
+     * A visualiza√ß√£o usa um BufferStrategy com 2 buffers.
      */
     public void setFullScreen( DisplayMode displayMode ) {
         
@@ -147,11 +147,11 @@ public class ScreenManager {
     
     
     /**
-     * ObtÈm o contexto gr·fico para a visualizaÁ„o. O ScreenManager
-     * usa double buffering, ent„o as aplicaÁıes devem chamar update()
+     * Obt√©m o contexto gr√°fico para a visualiza√ß√£o. O ScreenManager
+     * usa double buffering, ent√£o as aplica√ß√µes devem chamar update()
      * para mostrar qualquer desenho que foi desenhado.
      * <p>
-     * A aplicaÁ„o deve dispor do objeto gr·fico.
+     * A aplica√ß√£o deve dispor do objeto gr√°fico.
      */
     public Graphics2D getGraphics() {
         
@@ -172,7 +172,7 @@ public class ScreenManager {
     
     
     /**
-     * Atualiza a visualizaÁ„o.
+     * Atualiza a visualiza√ß√£o.
      */
     public void update() {
         
@@ -187,7 +187,7 @@ public class ScreenManager {
             
         }
         
-        // sincroniza a visualizaÁ„o em alguns sistemas
+        // sincroniza a visualiza√ß√£o em alguns sistemas
         Toolkit.getDefaultToolkit().sync();
         
     }
@@ -195,7 +195,7 @@ public class ScreenManager {
     
     /**
      * Retorna a janela utilizada no modo de tela cheia atual.
-     * Retorna null se o dispositivo n„o est· no modo de tela cheia.
+     * Retorna null se o dispositivo n√£o est√° no modo de tela cheia.
      */
     public Window getFullScreenWindow() {
         
@@ -206,7 +206,7 @@ public class ScreenManager {
     
     /**
      * Retorna a largura da janela usada atualmente no modo de tela cheia.
-     * Retorna zero se o dispositivo n„o estiver no modo de tela cheia.
+     * Retorna zero se o dispositivo n√£o estiver no modo de tela cheia.
      */
     public int getWidth() {
         
@@ -227,7 +227,7 @@ public class ScreenManager {
     
     /**
      * Retorna a altura da janela usada atualmente no modo de tela cheia.
-     * Retorna zero se o dispositivo n„o estiver no modo de tela cheia.
+     * Retorna zero se o dispositivo n√£o estiver no modo de tela cheia.
      */
     public int getHeight() {
         
@@ -247,7 +247,7 @@ public class ScreenManager {
     
     
     /**
-     * Restaura o modo de visualizaÁ„o da tela.
+     * Restaura o modo de visualiza√ß√£o da tela.
      */
     public void restoreScreen() {
         
@@ -263,7 +263,7 @@ public class ScreenManager {
     
     
     /**
-     * Cria uma imagem compatÌvel com a visualizaÁ„o atual.
+     * Cria uma imagem compat√≠vel com a visualiza√ß√£o atual.
      */
     public BufferedImage createCompatibleImage( int w, int h, int transparency ) {
         

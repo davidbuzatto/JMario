@@ -9,14 +9,14 @@ import jogo.sprites.*;
 /**
  * A classe TileMapRenderer desenha um TileMap na tela.
  * Ela desenha todos os tiles, sprites, e o a imagem de fundo opcional, 
- * centralizados na posiÁ„o do jogador.
+ * centralizados na posi√ß√£o do jogador.
  *
  * <p>Se a largura da imagem de fundo por menor que a largura do mapa, a 
- * imagem de fundo parecer· que esta se movendo devagar, criando o 
+ * imagem de fundo parecer√° que esta se movendo devagar, criando o 
  * efeito de parallax.
  *
- * <p>TambÈm, trÍs mÈtodos est·ticos s„o fornecidos para converter pixels em 
- * posiÁıes dos tiles e vice-versa.
+ * <p>Tamb√©m, tr√™s m√©todos est√°ticos s√£o fornecidos para converter pixels em 
+ * posi√ß√µes dos tiles e vice-versa.
  *
  * <p>Esse TileMapRender usa tiles com tamanho de 64.
  */
@@ -31,7 +31,7 @@ public class TileMapRenderer {
     private Image background;
     
     /**
-     * Converte uma posiÁ„o em pixel para a posiÁ„o de um tile.
+     * Converte uma posi√ß√£o em pixel para a posi√ß√£o de um tile.
      */
     public static int pixelsToTiles( float pixels ) {
         return pixelsToTiles( Math.round( pixels ) );
@@ -39,28 +39,28 @@ public class TileMapRenderer {
     
     
     /**
-     * Converte uma posiÁ„o em pixel para a posiÁ„o de um tile.
+     * Converte uma posi√ß√£o em pixel para a posi√ß√£o de um tile.
      */
     public static int pixelsToTiles(int pixels) {
         // usa deslocamento para obter os valores corretos para pixels negativos
         return pixels >> TILE_SIZE_BITS;
         
-        // ou, se o tamanho dos tiles n„o forem potÍncia de dois, usa o mÈtodo 
+        // ou, se o tamanho dos tiles n√£o forem pot√™ncia de dois, usa o m√©todo 
         // floor():
         // return ( int ) Math.floor( ( float ) pixels / TILE_SIZE );
     }
     
     
     /**
-     * Converte a posiÁ„o de um tile para a posiÁ„o em pixel.
+     * Converte a posi√ß√£o de um tile para a posi√ß√£o em pixel.
      */
     public static int tilesToPixels(int numTiles) {
-        // sem raz„o real para usar deslocamento aqui.
-        // o seu uso È um pouco mais r·pido, mas nos processadores modernos isso 
-        // quase n„o faz diferenÁa
+        // sem raz√£o real para usar deslocamento aqui.
+        // o seu uso √© um pouco mais r√°pido, mas nos processadores modernos isso 
+        // quase n√£o faz diferen√ßa
         return numTiles << TILE_SIZE_BITS;
         
-        // se o tamanho dos tiles n„o forem potÍncia de dois,
+        // se o tamanho dos tiles n√£o forem pot√™ncia de dois,
         // return numTiles * TILE_SIZE;
     }
     
@@ -82,17 +82,17 @@ public class TileMapRenderer {
         Sprite player = map.getPlayer();
         int mapWidth = tilesToPixels( map.getWidth() );
         
-        // obtÈm a posiÁ„o de scrolling do mapa, baseado na posiÁ„o do jogador
+        // obt√©m a posi√ß√£o de scrolling do mapa, baseado na posi√ß√£o do jogador
         int offsetX = screenWidth / 2 -
                 Math.round( player.getX() ) - TILE_SIZE;
         offsetX = Math.min( offsetX, 0 );
         offsetX = Math.max( offsetX, screenWidth - mapWidth );
         
-        // obtÈm o offset de y para desenhar todas as sprites e tiles
+        // obt√©m o offset de y para desenhar todas as sprites e tiles
         int offsetY = screenHeight -
                 tilesToPixels( map.getHeight() );
         
-        // desenha um fundo preto se necess·rio
+        // desenha um fundo preto se necess√°rio
         if ( background == null ||
                 screenHeight > background.getHeight( null ) ) {
             g.setColor( Color.BLACK );
@@ -109,7 +109,7 @@ public class TileMapRenderer {
             g.drawImage( background, x, y, null );
         }
         
-        // desenha os tiles visÌveis
+        // desenha os tiles vis√≠veis
         int firstTileX = pixelsToTiles( -offsetX );
         int lastTileX = firstTileX +
                 pixelsToTiles( screenWidth ) + 1;

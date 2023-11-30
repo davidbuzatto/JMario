@@ -3,7 +3,7 @@ package jogo.sprites;
 import infraestrutura.grafico.Animation;
 
 /**
- * Um MummyTurtle È uma Creature que se move devagar no ch„o.
+ * Um MummyTurtle √© uma Creature que se move devagar no ch√£o.
  */
 public class MummyTurtle extends Creature {
     

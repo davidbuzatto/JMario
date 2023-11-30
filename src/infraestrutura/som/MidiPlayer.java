@@ -4,7 +4,7 @@ import java.io.*;
 import javax.sound.midi.*;
 
 /*
- * A classe MidiPlayer é responsável por reproduzir arquivos mid.
+ * A classe MidiPlayer Ã© responsÃ¡vel por reproduzir arquivos mid.
  *
  * @author David Buzatto
  */
@@ -38,7 +38,7 @@ public class MidiPlayer implements MetaEventListener {
     
     
     /**
-     * Carrega a seqüência do sistema de arquivos. Retorna null se um erro 
+     * Carrega a seqÃ¼Ãªncia do sistema de arquivos. Retorna null se um erro 
      * ocorrer.
      */
     public Sequence getSequence( String name ) {
@@ -58,9 +58,9 @@ public class MidiPlayer implements MetaEventListener {
     
     
     /**
-     * Executa uma seqüência, realizando um loop opcionalmente. 
-     * Esse método retorna imediatamente.
-     * A seqüência não é executada se não for válida.
+     * Executa uma seqÃ¼Ãªncia, realizando um loop opcionalmente. 
+     * Esse mÃ©todo retorna imediatamente.
+     * A seqÃ¼Ãªncia nÃ£o Ã© executada se nÃ£o for vÃ¡lida.
      */
     public void play( Sequence sequence, boolean loop ) {
         
@@ -82,9 +82,9 @@ public class MidiPlayer implements MetaEventListener {
     
     
     /**
-     * Esse método é chamado pelo sistema de som onde o evento meta ocorre.
-     * Nesse caso, quando o meta evento "end-of-track" é recebido, 
-     * a seqüência é reiniciada se o loop estiver ligado.
+     * Esse mÃ©todo Ã© chamado pelo sistema de som onde o evento meta ocorre.
+     * Nesse caso, quando o meta evento "end-of-track" Ã© recebido, 
+     * a seqÃ¼Ãªncia Ã© reiniciada se o loop estiver ligado.
      */
     public void meta( MetaMessage event ) {
         if ( event.getType() == END_OF_TRACK_MESSAGE ) {
@@ -97,7 +97,7 @@ public class MidiPlayer implements MetaEventListener {
     
     
     /**
-     * Para o seqüenciador e reinicia sua posição para 0.
+     * Para o seqÃ¼enciador e reinicia sua posiÃ§Ã£o para 0.
      */
     public void stop() {
         if ( sequencer != null && sequencer.isOpen() ) {
@@ -108,7 +108,7 @@ public class MidiPlayer implements MetaEventListener {
     
     
     /**
-     * Fechao o seqüenciador.
+     * Fechao o seqÃ¼enciador.
      */
     public void close() {
         if ( sequencer != null && sequencer.isOpen() ) {
@@ -118,7 +118,7 @@ public class MidiPlayer implements MetaEventListener {
     
     
     /**
-     * Obtém o seqüenciador.
+     * ObtÃ©m o seqÃ¼enciador.
      */
     public Sequencer getSequencer() {
         return sequencer;
@@ -126,7 +126,7 @@ public class MidiPlayer implements MetaEventListener {
     
     
     /**
-     * Configura o estado de pausa. A música pode não parar imediatamente.
+     * Configura o estado de pausa. A mÃºsica pode nÃ£o parar imediatamente.
      */
     public void setPaused( boolean paused ) {
         if ( this.paused != paused && sequencer != null ) {
@@ -141,7 +141,7 @@ public class MidiPlayer implements MetaEventListener {
     
     
     /**
-     * Returna se está pausado.
+     * Returna se estÃ¡ pausado.
      */
     public boolean isPaused() {
         return paused;

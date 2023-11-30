@@ -6,10 +6,10 @@ import java.io.*;
 import java.util.*;
 
 /**
- * A classe TileMap contém a informação para um pequeno mapa de figuras
+ * A classe TileMap contÃ©m a informaÃ§Ã£o para um pequeno mapa de figuras
  * lado a lado, incluindo Sprites.
- * Cada pedaço é uma referência a uma imagem, sendo essas imagens usadas
- * múltiplas vezes no mesmo mapa.
+ * Cada pedaÃ§o Ã© uma referÃªncia a uma imagem, sendo essas imagens usadas
+ * mÃºltiplas vezes no mesmo mapa.
  *
  * @author David Buzatto
  */
@@ -21,7 +21,7 @@ public class TileMap {
     
     /**
      * Cria um novo TileMap com a largura e altura especificada
-     * (em número de pedaços) do mapa.
+     * (em nÃºmero de pedaÃ§os) do mapa.
      */
     public TileMap( int width, int height ) {
         tiles = new Image[ width ][ height ];
@@ -30,14 +30,14 @@ public class TileMap {
     
     
     /**
-     * Obtém a largura do TileMap (número de pedaços).
+     * ObtÃ©m a largura do TileMap (nÃºmero de pedaÃ§os).
      */
     public int getWidth() {
         return tiles.length;
     }
     
     /**
-     * Obtém a altura do TileMap (número de pedaços).
+     * ObtÃ©m a altura do TileMap (nÃºmero de pedaÃ§os).
      */
     public int getHeight() {
         return tiles[ 0 ].length;
@@ -45,9 +45,9 @@ public class TileMap {
     
     
     /**
-     * Obtém o pedaço de uma localização espefífica. Retorna null is
-     * não haver nenhum pedaço na localização espeficada ou então se a
-     * localizaçãono for fora dos limites do mapa.
+     * ObtÃ©m o pedaÃ§o de uma localizaÃ§Ã£o espefÃ­fica. Retorna null is
+     * nÃ£o haver nenhum pedaÃ§o na localizaÃ§Ã£o espeficada ou entÃ£o se a
+     * localizaÃ§Ã£ono for fora dos limites do mapa.
      */
     public Image getTile( int x, int y ) {
         if ( x < 0 || x >= getWidth() ||
@@ -60,7 +60,7 @@ public class TileMap {
     
     
     /**
-     * Configura o pedaço no local especificado.
+     * Configura o pedaÃ§o no local especificado.
      */
     public void setTile( int x, int y, Image tile ) {
         tiles[ x ][ y ] = tile;
@@ -68,7 +68,7 @@ public class TileMap {
     
     
     /**
-     * Obtém a Sprite do jogador.
+     * ObtÃ©m a Sprite do jogador.
      */
     public Sprite getPlayer() {
         return player;
@@ -100,7 +100,7 @@ public class TileMap {
     
     
     /**
-     * Obtém o Iterator de todas as Sprites desse mapa, menos a do jogador.
+     * ObtÃ©m o Iterator de todas as Sprites desse mapa, menos a do jogador.
      */
     public Iterator getSprites() {
         return sprites.iterator();

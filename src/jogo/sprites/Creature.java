@@ -5,8 +5,8 @@ import infraestrutura.grafico.Sprite;
 import java.lang.reflect.Constructor;
 
 /**
- * Uma Creature È uma Sprite que È afetada pela gravidade e pode morrer.
- * Ela tem quatro animaÁıes: moveno para a esquerda, direita, morrendo para a 
+ * Uma Creature √© uma Sprite que √© afetada pela gravidade e pode morrer.
+ * Ela tem quatro anima√ß√µes: moveno para a esquerda, direita, morrendo para a 
  * esquerda e direita.
  *
  * @author David Buzatto
@@ -31,7 +31,7 @@ public abstract class Creature extends Sprite {
     private float maxSpeed;
     
     /**
-     * Cria uma nova criatura com as animaÁıes especificadas.
+     * Cria uma nova criatura com as anima√ß√µes especificadas.
      */
     public Creature( Animation left, Animation right,
             Animation deadLeft, Animation deadRight ) {
@@ -45,7 +45,7 @@ public abstract class Creature extends Sprite {
     }
     
     public Object clone() {
-        // usa reflex„o para criar a subclasse correta.
+        // usa reflex√£o para criar a subclasse correta.
         Constructor constructor = getClass().getConstructors()[ 0 ];
         try {
             return constructor.newInstance( new Object[] {
@@ -63,7 +63,7 @@ public abstract class Creature extends Sprite {
     
     
     /**
-     * Configura a velocidade m·xima dessa criatura.
+     * Configura a velocidade m√°xima dessa criatura.
      */
     public void setMaxSpeed( float maxSpeed ) {
         this.maxSpeed = maxSpeed;
@@ -71,7 +71,7 @@ public abstract class Creature extends Sprite {
     
     
     /**
-     * ObtÈm a velocidade m·xima dessa criatura.
+     * Obt√©m a velocidade m√°xima dessa criatura.
      */
     public float getMaxSpeed() {
         return maxSpeed;
@@ -90,7 +90,7 @@ public abstract class Creature extends Sprite {
     
     
     /**
-     * ObtÈm o estado dessa criatura, podendo ser 
+     * Obt√©m o estado dessa criatura, podendo ser 
      * STATE_NORMAL, STATE_DYING, ou STATE_DEAD.
      */
     public int getState() {
@@ -115,7 +115,7 @@ public abstract class Creature extends Sprite {
     
     
     /**
-     * Verifica se essa criatura est· viva.
+     * Verifica se essa criatura est√° viva.
      */
     public boolean isAlive() {
         return ( getState() == STATE_NORMAL );
@@ -123,7 +123,7 @@ public abstract class Creature extends Sprite {
     
     
     /**
-     * Verifica se esta criatura est· voando.
+     * Verifica se esta criatura est√° voando.
      */
     public boolean isFlying() {
         return false;
@@ -149,10 +149,10 @@ public abstract class Creature extends Sprite {
     
     
     /**
-     * Atualiza a animaÁ„o dessa criatura.
+     * Atualiza a anima√ß√£o dessa criatura.
      */
     public void update( long elapsedTime ) {
-        // seleciona a animaÁ„o correta
+        // seleciona a anima√ß√£o correta
         Animation newAnim = anim;
         if ( getVelocityX() < 0 ) {
             newAnim = getLeft();
@@ -165,7 +165,7 @@ public abstract class Creature extends Sprite {
             newAnim = getDeadRight();
         }
         
-        // atualiza a animaÁ„o
+        // atualiza a anima√ß√£o
         if ( anim != newAnim ) {
             anim = newAnim;
             anim.start();

@@ -3,7 +3,7 @@ package jogo.sprites;
 import infraestrutura.grafico.Animation;
 
 /**
- * Um RedKoopa È uma Creature que se move devagar no ch„o.
+ * Um RedKoopa √© uma Creature que se move devagar no ch√£o.
  */
 public class RedKoopa extends Creature {
     

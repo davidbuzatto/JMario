@@ -3,7 +3,7 @@ package jogo.sprites;
 import infraestrutura.grafico.Animation;
 
 /**
- * Um BlueKoopa È uma Creature que se move devagar no ch„o.
+ * Um BlueKoopa √© uma Creature que se move devagar no ch√£o.
  */
 public class BlueKoopa extends Creature {
     

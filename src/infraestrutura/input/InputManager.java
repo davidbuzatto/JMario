@@ -8,7 +8,7 @@ import javax.swing.*;
 
 /**
  * O InputManager gerencia a entrada de teclas e eventos do mouse.
- * Os eventos s„o mapeados para GameActions.
+ * Os eventos s√£o mapeados para GameActions.
  *
  * @author David Buzatto
  */
@@ -17,7 +17,7 @@ public class InputManager implements KeyListener, MouseListener,
     
     
     /**
-     * Um cursor invisÌvel.
+     * Um cursor invis√≠vel.
      */
     public static final Cursor INVISIBLE_CURSOR =
             Toolkit.getDefaultToolkit().createCustomCursor(
@@ -26,7 +26,7 @@ public class InputManager implements KeyListener, MouseListener,
             "invisible" );
     
     /**
-     * CÛdigos do mouse.
+     * C√≥digos do mouse.
      */
     public static final int MOUSE_MOVE_LEFT = 0;
     public static final int MOUSE_MOVE_RIGHT = 1;
@@ -42,9 +42,9 @@ public class InputManager implements KeyListener, MouseListener,
 
     
     /**
-     * ps cÛdigos de teclas s„o definidos em java.awt.KeyEvent.
-     * a maiortia dos cÛdigos (com excess„o de alguns raros como "alt graph"
-     * s„o menores que 600.
+     * ps c√≥digos de teclas s√£o definidos em java.awt.KeyEvent.
+     * a maiortia dos c√≥digos (com excess√£o de alguns raros como "alt graph"
+     * s√£o menores que 600.
      */
     private static final int NUM_KEY_CODES = 600;
 
@@ -60,7 +60,7 @@ public class InputManager implements KeyListener, MouseListener,
     
     /**
      * Cria um novo InputManager que ouve as entradas de um componente 
-     * especÌfico.
+     * espec√≠fico.
      */
     public InputManager( Component comp ) {
         this.comp = comp;
@@ -90,9 +90,9 @@ public class InputManager implements KeyListener, MouseListener,
 
     
     /**
-     * Configura quando o modo relativo do mous est· ligado ou n„o.
+     * Configura quando o modo relativo do mous est√° ligado ou n√£o.
      * Para o modo relativo do mouse, o cursor fica "trancado" no centro
-     * da tela, e somente a mudanÁa no movimento do mouse È medida.
+     * da tela, e somente a mudan√ßa no movimento do mouse √© medida.
      * No modo normal, o mouse fica livre para mover pela a tela.
      */
     public void setRelativeMouseMode( boolean mode ) {
@@ -106,7 +106,7 @@ public class InputManager implements KeyListener, MouseListener,
                 recenterMouse();
             }
             catch ( AWTException ex ) {
-                // n„o pÙde criar um Robot
+                // n√£o p√¥de criar um Robot
                 robot = null;
             }
         } else {
@@ -116,7 +116,7 @@ public class InputManager implements KeyListener, MouseListener,
 
     
     /**
-     * Retorna se o modo relativo do mouse est· ligado ou n„o.
+     * Retorna se o modo relativo do mouse est√° ligado ou n√£o.
      */
     public boolean isRelativeMouseMode() {
         return ( robot != null );
@@ -124,9 +124,9 @@ public class InputManager implements KeyListener, MouseListener,
 
     
     /**
-     * Mapeia uma GameAction para uma tecla especÌfica.
-     * Os cÛdigos das telas s„o definidos em java.awt.KeyEvent.
-     * Se a tecla j· tiver uma GameAction mapeada a ela, a nova GameAction
+     * Mapeia uma GameAction para uma tecla espec√≠fica.
+     * Os c√≥digos das telas s√£o definidos em java.awt.KeyEvent.
+     * Se a tecla j√° tiver uma GameAction mapeada a ela, a nova GameAction
      * sobrescreve a mesma.
      */
     public void mapToKey( GameAction gameAction, int keyCode ) {
@@ -135,10 +135,10 @@ public class InputManager implements KeyListener, MouseListener,
 
     
     /**
-     * Mapeia uma GameAction para uma aÁ„o especÌfica do mouse.
-     * Os cÛdigos do mouse s„o definidos aqui no InputManager
-     * (MOUSE_MOVE_LEFT, MOUSE_BUTTON_1, etc). Se a aÁ„o do mouse j· tiver uma 
-     * GameAction mapeada a ela, a nova GameAction sobrescrever· a mesma.
+     * Mapeia uma GameAction para uma a√ß√£o espec√≠fica do mouse.
+     * Os c√≥digos do mouse s√£o definidos aqui no InputManager
+     * (MOUSE_MOVE_LEFT, MOUSE_BUTTON_1, etc). Se a a√ß√£o do mouse j√° tiver uma 
+     * GameAction mapeada a ela, a nova GameAction sobrescrever√° a mesma.
      */
     public void mapToMouse( GameAction gameAction, int mouseCode ) {
         mouseActions[ mouseCode ] = gameAction;
@@ -146,7 +146,7 @@ public class InputManager implements KeyListener, MouseListener,
     
     
     /**
-     * Limpa todas as teclas mapeadas e aÁıes do mouse para essa GameAction.
+     * Limpa todas as teclas mapeadas e a√ß√µes do mouse para essa GameAction.
      */
     public void clearMap( GameAction gameAction ) {
         for ( int i = 0; i < keyActions.length; i++ ) {
@@ -166,8 +166,8 @@ public class InputManager implements KeyListener, MouseListener,
 
     
     /**
-     * ObtÈm uma List dos nomes das teclas e aÁıes do mouse mapeadas para essa 
-     * GameAction cada entrada na lista È uma String.
+     * Obt√©m uma List dos nomes das teclas e a√ß√µes do mouse mapeadas para essa 
+     * GameAction cada entrada na lista √© uma String.
      */
     public List getMaps( GameAction gameCode ) {
         ArrayList< String > list = new ArrayList< String >();
@@ -188,8 +188,8 @@ public class InputManager implements KeyListener, MouseListener,
 
     
     /**
-     * Reseta todas as GameAction, ent„o elas ficam em um estado que parece
-     * que elas n„o foram pressionadas.
+     * Reseta todas as GameAction, ent√£o elas ficam em um estado que parece
+     * que elas n√£o foram pressionadas.
      */
     public void resetAllGameActions() {
         for ( int i = 0; i < keyActions.length; i++ ) {
@@ -207,7 +207,7 @@ public class InputManager implements KeyListener, MouseListener,
 
     
     /**
-     * ObtÈm o nome de um cÛdigo de tecla.
+     * Obt√©m o nome de um c√≥digo de tecla.
      */
     public static String getKeyName( int keyCode ) {
         return KeyEvent.getKeyText( keyCode );
@@ -215,7 +215,7 @@ public class InputManager implements KeyListener, MouseListener,
     
     
     /**
-     * ObtÈm o nome de um cÛdigo do mouse.
+     * Obt√©m o nome de um c√≥digo do mouse.
      */
     public static String getMouseName( int mouseCode ) {
         switch ( mouseCode ) {
@@ -254,7 +254,7 @@ public class InputManager implements KeyListener, MouseListener,
 
     
     /**
-     * ObtÈm a posiÁ„o x do mouse.
+     * Obt√©m a posi√ß√£o x do mouse.
      */
     public int getMouseX() {
         return mouseLocation.x;
@@ -262,7 +262,7 @@ public class InputManager implements KeyListener, MouseListener,
 
     
     /**
-     * ObtÈm a posiÁ„o y do mouse.
+     * Obt√©m a posi√ß√£o y do mouse.
      */
     public int getMouseY() {
         return mouseLocation.y;
@@ -271,7 +271,7 @@ public class InputManager implements KeyListener, MouseListener,
     
     /**
      * Usa a classe Robot para tentar posicionar o mouse no centro da tela.
-     * <p> Note que o uso da classe Robot pode n„o ser possÌvel em todas as 
+     * <p> Note que o uso da classe Robot pode n√£o ser poss√≠vel em todas as 
      * plataformas.
      */
     private synchronized void recenterMouse() {
@@ -299,7 +299,7 @@ public class InputManager implements KeyListener, MouseListener,
 
     
     /**
-     * ObtÈm o cÛdigo do mouse para o bot„o especificado no MouseEvent
+     * Obt√©m o c√≥digo do mouse para o bot√£o especificado no MouseEvent
      */
     public static int getMouseButtonCode( MouseEvent e ) {
          switch ( e.getButton() ) {
@@ -333,7 +333,7 @@ public class InputManager implements KeyListener, MouseListener,
 
     
     public void keyTyped( KeyEvent e ) {
-        // d· certeza que a tecla n„o È processada por mais ninguÈm
+        // d√° certeza que a tecla n√£o √© processada por mais ningu√©m
         e.consume();
     }
 
@@ -343,7 +343,7 @@ public class InputManager implements KeyListener, MouseListener,
         if ( gameAction != null ) {
             gameAction.press();
         }
-        // d· certeza que a tecla n„o È processada por mais ninguÈm
+        // d√° certeza que a tecla n√£o √© processada por mais ningu√©m
         e.consume();
     }
 
@@ -353,13 +353,13 @@ public class InputManager implements KeyListener, MouseListener,
         if ( gameAction != null ) {
             gameAction.release();
         }
-        // d· certeza que a tecla n„o È processada por mais ninguÈm
+        // d√° certeza que a tecla n√£o √© processada por mais ningu√©m
         e.consume();
     }
 
     
     public void mouseClicked( MouseEvent e ) {
-        // n„o faz nada
+        // n√£o faz nada
     }
 
     
@@ -394,7 +394,7 @@ public class InputManager implements KeyListener, MouseListener,
 
     
     public synchronized void mouseMoved(MouseEvent e) {
-        // este evento È para recentralizar o mouse
+        // este evento √© para recentralizar o mouse
         if ( isRecentering &&
             centerLocation.x == e.getX() &&
             centerLocation.y == e.getY() ) {
@@ -419,7 +419,7 @@ public class InputManager implements KeyListener, MouseListener,
     }
     
     /**
-     * Calcula e configura a movimentaÁ„o do mouse.
+     * Calcula e configura a movimenta√ß√£o do mouse.
      */
     private void mouseHelper( int codeNeg, int codePos, int amount ) {
         GameAction gameAction;

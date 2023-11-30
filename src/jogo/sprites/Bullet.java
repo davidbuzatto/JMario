@@ -3,7 +3,7 @@ package jogo.sprites;
 import infraestrutura.grafico.Animation;
 
 /**
- * Uma Bullet é uma Creature que voa vagarozamente no ar.
+ * Uma Bullet Ã© uma Creature que voa vagarozamente no ar.
  */
 public class Bullet extends Creature {
     

@@ -3,8 +3,8 @@ package infraestrutura.grafico;
 import javax.swing.*;
 
 /**
- * O NullRepaintManager È um RepaintManager que n„o faz nenhum repaint.
- * … ˙til quando toda a renderizaÁ„o È feita manualmente pela aplicaÁ„o.
+ * O NullRepaintManager √© um RepaintManager que n√£o faz nenhum repaint.
+ * √â √∫til quando toda a renderiza√ß√£o √© feita manualmente pela aplica√ß√£o.
  *
  * @author David Buzatto
  */
@@ -21,23 +21,23 @@ public class NullRepaintManager extends RepaintManager {
     
     
     public void addInvalidComponent( JComponent c ) {
-        // n„o faz nada
+        // n√£o faz nada
     }
     
     
     public void addDirtyRegion( JComponent c, int x, int y,
             int w, int h ) {
-        // n„o faz nada
+        // n√£o faz nada
     }
     
     
     public void markCompletelyDirty( JComponent c ) {
-        // n„o faz nada
+        // n√£o faz nada
     }
     
     
     public void paintDirtyRegions() {
-        // n„o faz nada
+        // n√£o faz nada
     }
     
 }
